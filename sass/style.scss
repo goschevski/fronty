@@ -1,0 +1,28 @@
+/* CSS by AG Dizajn - www.agdizajn.com */
+
+//chrome frame
+.chromeframe { 
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	background: #ccc; 
+	color: black; 
+	padding: 0.2em 0; 
+}
+
+// imports
+@import "compass/css3";
+
+// colors
+// $green: green;
+// $blue: blue;
+
+// to include mixin use: @include name_of mixin($param1, $param2);
+
+body {
+	background-color: #eee;
+	font: 14px Arial, Verdana, sans-serif;
+	line-height: 1.5em;
+}
