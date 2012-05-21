@@ -10,7 +10,7 @@ javascripts_dir = "assets/js"
 output_style = :nested
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-# relative_assets = true
+relative_assets = true
 
 line_comments = false
 
