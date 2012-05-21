@@ -18,16 +18,10 @@
 
 }
 
-@mixin enriqueta-regular-font( $font-size: 14px, $font-weight: normal, $line-height: 1.5em ) {
-    font-family: 'EnriquetaRegular', Georgia, serif;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    line-height: $line-height;
+@mixin enriqueta-regular($font-size: 14px, $font-weight: normal, $line-height: 1.5em) {
+    font: $font-weight #{$font-size}/#{$line-height} 'EnriquetaRegular', Georgia, serif;
 }
 
-@mixin enriqueta-bold-font( $font-size: 14px, $font-weight: normal, $line-height: 1.5em ) {
-    font-family: 'EnriquetaBold', Georgia, serif;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    line-height: $line-height;
+@mixin enriqueta-bold($font-size: 14px, $font-weight: normal, $line-height: 1.5em) {
+    font: $font-weight #{$font-size}/#{$line-height} 'EnriquetaBold', Georgia, serif;
 }
