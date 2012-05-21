@@ -1,23 +1,10 @@
 /* TYPOGRAPHY */
 
-@font-face {
-    font-family: 'EnriquetaRegular';
-    src: url('../fonts/enriqueta-regular-webfont.eot');
-    src: url('../fonts/enriqueta-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/enriqueta-regular-webfont.woff') format('woff'), url('../fonts/enriqueta-regular-webfont.ttf') format('truetype'), url('../fonts/enriqueta-regular-webfont.svg#EnriquetaRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// font-face for fonts
+@include font-face('EnriquetaRegular', font-files("enriqueta-regular-webfont.woff", "enriqueta-regular-webfont.ttf", "enriqueta-regular-webfont.svg"), "enriqueta-regular-webfont.eot", normal, normal);
+@include font-face('EnriquetaBold', font-files("enriqueta-bold-webfont.woff", "enriqueta-bold-webfont.ttf", "enriqueta-bold-webfont.svg"), "enriqueta-bold-webfont.eot", normal, normal);
 
-}
-
-@font-face {
-    font-family: 'EnriquetaBold';
-    src: url('../fonts/enriqueta-bold-webfont.eot');
-    src: url('../fonts/enriqueta-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/enriqueta-bold-webfont.woff') format('woff'), url('../fonts/enriqueta-bold-webfont.ttf') format('truetype'), url('../fonts/enriqueta-bold-webfont.svg#EnriquetaBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
+// mixins for fonts
 @mixin enriqueta-regular($font-size: 14px, $font-weight: normal, $line-height: 1.5em) {
     font: $font-weight #{$font-size}/#{$line-height} 'EnriquetaRegular', Georgia, serif;
 }
