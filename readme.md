@@ -9,18 +9,18 @@ Assets
  * fonts folder for fonts files
  * img folder for images with twitter bootstrap's images
  * js folder for javascript files with twitter bootstrap js files
- * min folder with script files which minify javascript files
 	
 Sass
 --------
- * bootstrap.scss - SCSS file of twitter bootstrap css
- * chromeframe.scss - frame for ie6 users
- * layout.scss - file for styling layout
- * mediaqueries.scss - file with media queries for all devices
- * mixins.scss - file for custom mixins
- * typography.scss - file for typography (font-faces, mixins etc.)
- * variables.scss - variables of colors, measurements etc.
- * ie.scss - file for ie fixes
+ * _bootstrap-responsive.scss - SCSS file of twitter bootstrap responsive css
+ * _bootstrap.scss - SCSS file of twitter bootstrap css
+ * _chromeframe.scss - frame for ie6 users
+ * _ie.scss - file for ie fixes
+ * _layout.scss - file for styling layout
+ * _mediaqueries.scss - file with media queries for all devices
+ * _mixins.scss - file for custom mixins
+ * _typography.scss - file for typography (font-faces, mixins etc.)
+ * _variables.scss - variables of colors, measurements etc.
  * style.scss - SCSS file which includes all partials
 
 Files
