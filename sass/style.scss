@@ -1,13 +1,34 @@
 /* CSS by AG Dizajn - www.agdizajn.com */
 
-// imports
+
+/*-----------------------------------
+ * LIBRARIES
+ *-----------------------------------*/
 @import "compass";
-@import "bootstrap";
-//@import "bootstrap-responsive";
-@import "chromeframe";
-@import "variables";
-@import "mixins";
-@import "typography";
-@import "layout";
-@import "ie";
-//@import "mediaqueries";
+//@import "lib/normalize";
+@import "lib/bootstrap";
+//@import "lib/bootstrap-responsive";
+
+
+/*-----------------------------------
+ * HELPERS
+ *-----------------------------------*/
+@import "helpers/variables";
+@import "helpers/mixins";
+//@import "helpers/typography";
+//@import "helpers/mediaqueries";
+
+
+/*-----------------------------------
+ * MAIN STYLES
+ *-----------------------------------*/
+@import "partials/layout";
+@import "partials/header";
+@import "partials/footer";
+ 
+
+/*-----------------------------------
+ * IE = IMBECIL ENGINE
+ *-----------------------------------*/
+@import "ie/chromeframe";
+//@import "ie/ie";
