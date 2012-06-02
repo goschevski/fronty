@@ -10,18 +10,18 @@ This is my boilerplate for starting new projects.
 
 ##Sass
  * style.scss - SCSS file which includes all partials
-###Lib Folder
- * _normalize.scss - normalize.css by Necolas
- * _bootstrap-responsive.scss - SCSS file of twitter bootstrap responsive css
- * _bootstrap.scss - SCSS file of twitter bootstrap css
-###IE Folder
+###Lib Folder###
+ * _normalize.scss - [normalize.css](https://github.com/necolas/normalize.css) by [Nicolas Gallagher](http://nicolasgallagher.com/)
+ * _bootstrap-responsive.scss - SCSS file of [twitter bootstrap](http://twitter.github.com/bootstrap/) responsive css
+ * _bootstrap.scss - SCSS file of [twitter bootstrap](http://twitter.github.com/bootstrap/) css
+###IE Folder###
  * _chromeframe.scss - frame for ie6 users
  * _ie.scss - file for ie fixes
-###Partials Folder
+###Partials Folder###
  * _layout.scss - file for styling layout
  * _header.scss - file for styling header
  * _footer.scss - file for styling footer
-###Helpers Folder
+###Helpers Folder###
  * _mediaqueries.scss - file with media queries for all devices
  * _mixins.scss - file for custom mixins
  * _typography.scss - file for typography (font-faces, mixins etc.)
