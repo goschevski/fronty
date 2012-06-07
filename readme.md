@@ -28,6 +28,7 @@ This is my boilerplate for starting new projects.
 ###Helpers Folder###
  * _mediaqueries.scss - file with media queries for all devices
  * _mixins.scss - file for custom mixins
+ * _sprites.scss - file for watching and creating sprites
  * _typography.scss - file for typography (font-faces, mixins etc.)
  * _variables.scss - variables of colors, measurements etc.
 
