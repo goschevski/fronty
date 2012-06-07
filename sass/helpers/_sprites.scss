@@ -1,0 +1,14 @@
+/*-----------------------------------
+ * SPRITES
+ *-----------------------------------*/
+
+$icons: sprite-map("icons/*.png");
+
+.arrow-forward-icon {
+	width: 22px;
+	height: 23px;
+	margin-left: 10px;
+	display: inline-block;
+	vertical-align: bottom;
+	background: sprite($icons, arrow-forward) no-repeat;
+}
