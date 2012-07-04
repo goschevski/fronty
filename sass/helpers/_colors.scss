@@ -1,0 +1,29 @@
+/*--------------------------------------
+ * MAIN COLOR
+---------------------------------------*/
+$main-color: #049cdb;
+
+// lighten main
+$main-light-1: lighten($main-color, 5%);
+$main-light-2: lighten($main-color, 10%);
+$main-light-3: lighten($main-color, 20%);
+
+// darken main
+$main-dark-1: darken($main-color, 5%);
+$main-dark-2: darken($main-color, 10%);
+$main-dark-3: darken($main-color, 20%);
+
+/*--------------------------------------
+ * SECONDARY COLOR
+---------------------------------------*/
+$sec-color: #999;
+
+// lighten sec
+$sec-light-1: lighten($sec-color, 5%);
+$sec-light-2: lighten($sec-color, 10%);
+$sec-light-3: lighten($sec-color, 20%);
+
+// darken sec
+$sec-dark-1: darken($sec-color, 5%);
+$sec-dark-2: darken($sec-color, 10%);
+$sec-dark-3: darken($sec-color, 20%);
