@@ -13,8 +13,7 @@ This is my boilerplate for starting new projects.
 
 ###Lib Folder###
  * _normalize.scss - [normalize.css](https://github.com/necolas/normalize.css) by [Nicolas Gallagher](http://nicolasgallagher.com/)
- * _bootstrap-responsive.scss - SCSS file of [twitter bootstrap](http://twitter.github.com/bootstrap/) responsive css
- * _bootstrap.scss - SCSS file of [twitter bootstrap](http://twitter.github.com/bootstrap/) css
+ * _blankwork.scss - [_blankwork.scss](https://github.com/justnorris/Blankwork-Flexible-SASS-Grid-System) by [justnorris](https://github.com/justnorris)
 
 ###IE Folder###
  * _chromeframe.scss - frame for ie6 users
@@ -29,6 +28,6 @@ This is my boilerplate for starting new projects.
  * _mediaqueries.scss - file with media queries for all devices
  * _mixins.scss - file for custom mixins
  * _sprites.scss - file for watching and creating sprites
- * _typography.scss - file for typography (font-faces, mixins etc.)
- * _variables.scss - variables of colors, measurements etc.
+ * _typography.scss - file for typography (vertical rhythm, font-faces, mixins etc.)
+ * _colors.scss - variables of colors
 
