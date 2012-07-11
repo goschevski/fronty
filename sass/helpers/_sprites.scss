@@ -3,10 +3,10 @@
 ---------------------------------------*/
 
 $icons: sprite-map("icons/*.png");
+$icons-layout: smart;
 
 .arrow-forward-icon {
-	width: 22px;
-	height: 23px;
+	@include sprite-dimensions($icons, arrow-forward);
 	margin-left: 10px;
 	display: inline-block;
 	vertical-align: bottom;
