@@ -1,0 +1,7 @@
+/*--------------------------------------
+ * FUNCTIONS
+---------------------------------------*/
+
+@function percent($target, $container) {
+    @return ($target / $container) * 100%
+}
