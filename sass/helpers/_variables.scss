@@ -1,0 +1,13 @@
+/*--------------------------------------
+ * VARIABLES
+---------------------------------------*/
+
+// Vertical Rhythm
+$base-font-size: 14px;
+$base-line-height: 21px;
+@include establish-baseline;
+
+// Sprites
+$icons: sprite-map("icons/*.png");
+$icons-layout: smart;
+
