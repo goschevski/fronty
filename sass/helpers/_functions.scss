@@ -2,6 +2,10 @@
  * FUNCTIONS
 ---------------------------------------*/
 
+@function calc-ems($target, $container) {
+    @return ($target / $container) * 1em
+}
+
 @function percent($target, $container) {
     @return ($target / $container) * 100%
 }
