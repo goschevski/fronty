@@ -11,3 +11,7 @@ $base-line-height: 21px;
 $icons: sprite-map("icons/*.png");
 $icons-layout: smart;
 
+// Retina Sprites
+$icons2x: sprite-map("icons-retina/*.png");
+$icons2x-layout: smart;
+

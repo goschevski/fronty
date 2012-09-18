@@ -4,20 +4,34 @@
 
 @mixin responsive($device) {
 
-  @if $device == smartphone {
-    @media only screen and (min-width : 320px) and (max-width : 480px) { @content; }
-  }
+    @if $device == smartphone {
+        @media only screen and (min-width : 320px) and (max-width : 480px) { @content; }
+    }
 
-  @if $device == tablet {
-    @media only screen and (min-width : 768px) and (max-width : 1024px) { @content; }
-  }
+    @if $device == tablet {
+        @media only screen and (min-width : 768px) and (max-width : 1024px) { @content; }
+    }
 
-  @if $device == desktop {
-    @media only screen and (min-width : 1224px) { @content; }
-  }
+    @if $device == desktop {
+        @media only screen and (min-width : 1224px) { @content; }
+    }
 
-  @if $device == retina {
-  	@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) { @content; }
+    @if $device == retina {
+        @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+            @content;
+        }
+    }
+
+}
+
+@mixin responsive-sprite($icon, $map: $icons, $retina-map: $icons2x) {
+
+  $icon2x: #{$icon}2x;
+  background: sprite($map, $icon);
+
+  @include responsive(retina) {
+    background: sprite($retina-map, $icon2x);
+    @include background-size(100%);
   }
 
 }
