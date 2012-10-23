@@ -19,12 +19,12 @@ $main-dark-3: darken($main-color, 20%);
 /*--------------------------------------
  * GRAY VARIATIONS
 ---------------------------------------*/
-$sec-light-1: lighten($sec-color, 5%);
-$sec-light-2: lighten($sec-color, 10%);
-$sec-light-3: lighten($sec-color, 20%);
-$sec-dark-1: darken($sec-color, 5%);
-$sec-dark-2: darken($sec-color, 10%);
-$sec-dark-3: darken($sec-color, 20%);
+$gray-light-1: lighten($gray-color, 5%);
+$gray-light-2: lighten($gray-color, 10%);
+$gray-light-3: lighten($gray-color, 20%);
+$gray-dark-1: darken($gray-color, 5%);
+$gray-dark-2: darken($gray-color, 10%);
+$gray-dark-3: darken($gray-color, 20%);
 
 /*--------------------------------------
  * COMPLEMENT VARIATIONS
