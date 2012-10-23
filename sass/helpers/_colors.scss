@@ -1,29 +1,38 @@
 /*--------------------------------------
- * MAIN COLOR
+ * COLOR SCHEME
 ---------------------------------------*/
 $main-color: #049cdb;
+$gray-color: #999;
+$comp-color: complement($main-color);
 
-// lighten main
+
+/*--------------------------------------
+ * MAIN VARIATIONS
+---------------------------------------*/
 $main-light-1: lighten($main-color, 5%);
 $main-light-2: lighten($main-color, 10%);
 $main-light-3: lighten($main-color, 20%);
-
-// darken main
 $main-dark-1: darken($main-color, 5%);
 $main-dark-2: darken($main-color, 10%);
 $main-dark-3: darken($main-color, 20%);
 
 /*--------------------------------------
- * SECONDARY COLOR
+ * GRAY VARIATIONS
 ---------------------------------------*/
-$sec-color: #999;
-
-// lighten sec
 $sec-light-1: lighten($sec-color, 5%);
 $sec-light-2: lighten($sec-color, 10%);
 $sec-light-3: lighten($sec-color, 20%);
-
-// darken sec
 $sec-dark-1: darken($sec-color, 5%);
 $sec-dark-2: darken($sec-color, 10%);
 $sec-dark-3: darken($sec-color, 20%);
+
+/*--------------------------------------
+ * COMPLEMENT VARIATIONS
+---------------------------------------*/
+$comp-light-1: lighten($comp-color, 5%);
+$comp-light-2: lighten($comp-color, 10%);
+$comp-light-3: lighten($comp-color, 20%);
+$comp-dark-1: darken($comp-color, 5%);
+$comp-dark-2: darken($comp-color, 10%);
+$comp-dark-3: darken($comp-color, 20%);
+
