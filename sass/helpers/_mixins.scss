@@ -3,7 +3,6 @@
 ---------------------------------------*/
 
 @mixin responsive($device) {
-
     @if $device == smartphone {
         @media only screen and (min-width : 320px) and (max-width : 480px) { @content; }
     }
@@ -21,17 +20,28 @@
             @content;
         }
     }
-
 }
 
-@mixin responsive-sprite($icon, $map: $icons, $retina-map: $icons2x) {
-
-  $icon2x: #{$icon}2x;
+@mixin responsive-sprite($icon, $map: $icons) {
+  $icon2x: "icons-retina/#{$icon}2x.png";
   background: sprite($map, $icon);
 
   @include responsive(retina) {
-    background: sprite($retina-map, $icon2x);
-    @include background-size(100%);
+    background: image-url($icon2x) no-repeat center center;
+    @include background-size(auto 100%);
   }
+}
 
+@mixin input-placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
 }
