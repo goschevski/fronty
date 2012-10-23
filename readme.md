@@ -32,7 +32,7 @@ This is my boilerplate for starting new projects.
 ###Helpers Folder###
  * _mediaqueries.scss - file with media queries for all devices
  * _mixins.scss - file for custom mixins
- * _sprites.scss - file for watching and creating sprites
+ * _variables.scss - file for global variables
  * _typography.scss - file for typography (vertical rhythm, font-faces, mixins etc.)
  * _colors.scss - variables of colors
  * _helpers.scss - file with helper classes
