@@ -1,0 +1,25 @@
+/*--------------------------------------
+ * SPRITES
+---------------------------------------*/
+
+@each $item in star {
+	.#{$item} {
+		display: inline-block;
+		@include hide-text;
+		@include sprite-dimensions($icons, $item);
+		@include responsive-sprite($item);
+	}
+}
+
+@each $item in star {
+	%#{$item} {
+		position: relative;
+		padding-left: calc-ems((image-width("icons/#{$item}.png")), $base-font-size) + 0.5em;
+
+		&:before {
+			content: "";
+			@include sprite-dimensions($icons, $item);
+			@include responsive-sprite($item);
+		}
+	}
+}
