@@ -2,3 +2,6 @@
  * LAYOUT
 ---------------------------------------*/
 
+* {
+	@include box-sizing(border-box);
+}
