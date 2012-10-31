@@ -5,3 +5,11 @@
 * {
 	@include box-sizing(border-box);
 }
+
+body {
+	-webkit-tap-highlight-color: black(0);
+}
+
+a {
+	text-decoration: none;
+}
