@@ -2,14 +2,16 @@
  * LAYOUT
 ---------------------------------------*/
 
-* {
+*, *:before, *:after {
 	@include box-sizing(border-box);
-}
-
-body {
 	-webkit-tap-highlight-color: black(0);
 }
 
-a {
-	text-decoration: none;
+img { max-width: 100%; }
+a { text-decoration: none; }
+
+.container {
+	@extend %clearfix;
+	max-width: 960px;
+	margin: 0.5em auto;
 }

@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 
     concat: {
       dist: {
-        src: ['<banner:meta.header>', '<config:lint.files>', '<banner:meta.footer>'],
+        src: ['libs/*.js', '<banner:meta.header>', 'main-libs/variables.js', 'files/*.js', '<banner:meta.footer>'],
         dest: 'scripts.js'
       }
     },
@@ -35,7 +35,6 @@ module.exports = function(grunt) {
     jshint: {
       options: {
         browser: true,
-        eqeqeq: true,
         latedef: true,
         unused: true,
         onevar: true

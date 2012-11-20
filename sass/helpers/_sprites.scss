@@ -14,7 +14,7 @@
 @each $item in star {
 	%#{$item} {
 		position: relative;
-		padding-left: calc-ems((image-width("icons/#{$item}.png")), $base-font-size) + 0.5em;
+		// padding-left: calc-ems((image-width("icons/#{$item}.png")), $base-font-size) + 0.5em;
 
 		&:before {
 			content: "";

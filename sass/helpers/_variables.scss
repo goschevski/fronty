@@ -10,3 +10,8 @@ $base-line-height: 21px;
 // Sprites
 $icons: sprite-map("icons/*.png");
 $icons-layout: smart;
+
+// Colors
+$main-color: #049cdb;
+$gray-color: #999;
+$comp-color: complement($main-color);

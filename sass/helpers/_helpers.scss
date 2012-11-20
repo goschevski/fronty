@@ -2,18 +2,11 @@
  * HELPERS
 ---------------------------------------*/
 
-%clearfix {
-	@include clearfix;
-}
-
-.left {
-	text-align: left;
-}
-
-.right {
-	text-align: right;
-}
-
-.center {
-	text-align: center;
-}
+%clearfix { @include clearfix; }
+%hide-text { @include hide-text; }
+.clear { clear: both; }
+.fleft { float: left; }
+.fright { float: right; }
+.left { text-align: left; }
+.right { text-align: right; }
+.center { text-align: center; }

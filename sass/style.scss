@@ -6,8 +6,6 @@
 ---------------------------------------*/
 @import "compass";
 @import "lib/normalize";
-@import "lib/grid";
-
 
 /*--------------------------------------
  * HELPERS
@@ -15,11 +13,10 @@
 @import "helpers/variables";
 @import "helpers/functions";
 @import "helpers/mixins";
-@import "helpers/colors";
 @import "helpers/sprites";
 @import "helpers/typography";
 @import "helpers/helpers";
-
+@import "helpers/ie";
 
 /*--------------------------------------
  * MAIN STYLES
@@ -27,10 +24,5 @@
 @import "partials/layout";
 @import "partials/header";
 @import "partials/footer";
-
-
-/*--------------------------------------
- * IE = IMBECIL ENGINE
----------------------------------------*/
-@import "ie/chromeframe";
-//@import "ie/ie";
+@import "partials/lists";
+@import "partials/buttons";
