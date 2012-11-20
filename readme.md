@@ -10,8 +10,11 @@ This is my boilerplate for starting new projects.
 
 ###Js folder
  * grunt.js - grunt config file
+ * scripts.js - concated js files
+ * scripts.min.js - minified scripts.js file
  * /files - folder for js partials
  * /libs - folder for js libraries
+ * /main-libs - folder for main js libraries
 
 ##Sass
  * style.scss - SCSS file which includes all partials
