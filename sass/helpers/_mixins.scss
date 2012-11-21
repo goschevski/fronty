@@ -22,14 +22,21 @@
     }
 }
 
-@mixin responsive-sprite($icon, $map: $icons) {
-  $icon2x: "icons-retina/#{$icon}2x.png";
-  background: sprite($map, $icon);
+@mixin responsive-sprite($icon) {
+    $icon2x: "icons-retina/#{$icon}2x.png";
+    $icon-retina: "#{$icon}2x";
+    @include sprite-dimensions($icons2x, $icon-retina);
+    background: sprite($icons2x, $icon-retina);
 
-  @include responsive(retina) {
-    background: image-url($icon2x) no-repeat center center;
-    @include background-size(auto 100%);
-  }
+    @include responsive(smartphone) {
+        @include sprite-dimensions($icons, $icon);
+        background: sprite($icons, $icon);
+    }
+
+    @include responsive(retina) {
+        background: image-url($icon2x) no-repeat center center;
+        background-size: 100%;
+    }
 }
 
 @mixin input-placeholder {

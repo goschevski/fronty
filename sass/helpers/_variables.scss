@@ -10,6 +10,8 @@ $base-line-height: 21px;
 // Sprites
 $icons: sprite-map("icons/*.png");
 $icons-layout: smart;
+$icons2x: sprite-map("icons-retina/*.png");
+$icons2x-layout: smart;
 
 // Colors
 $main-color: #049cdb;
