@@ -2,6 +2,11 @@
  * MIXINS
 ---------------------------------------*/
 
+@mixin rem($size) {
+    font-size: round(($size * $base-font-size));
+    font-size: $size + rem;
+}
+
 @mixin responsive($device) {
     @if $device == smartphone {
         @media only screen and (min-width : 320px) and (max-width : 480px) { @content; }
