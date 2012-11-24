@@ -5,8 +5,7 @@
 @each $item in star {
 	.#{$item} {
 		display: inline-block;
-		@include hide-text;
-		@include sprite-dimensions($icons, $item);
+		@extend %hide-text;
 		@include responsive-sprite($item);
 	}
 }

@@ -39,6 +39,7 @@
     }
 
     @include responsive(retina) {
+        @include sprite-dimensions($icons, $icon);
         background: image-url($icon2x) no-repeat center center;
         background-size: 100%;
     }
