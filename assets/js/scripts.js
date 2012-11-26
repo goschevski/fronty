@@ -9,10 +9,11 @@ var App = (function (parent, $) {
 		// Extend config with options
 		$.extend(config, options);
 
-		// Create array of modules in holder
+		// Variables
 		var holder = $(config.holder).data('modules'),
 			modules, i;
 
+		// Create modules array
 		modules = holder ? holder.split(" ") : [];
 
 		// Run modules from holder
