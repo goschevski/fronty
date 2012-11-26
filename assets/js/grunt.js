@@ -4,18 +4,13 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
 
-    meta: {
-      header: '$(function () {',
-      footer: '});'
-    },
-
     lint: {
-      files: ['files/*.js']
+      files: ['modules/*.js']
     },
 
     concat: {
       dist: {
-        src: ['libs/*.js', '<banner:meta.header>', 'main-libs/variables.js', 'files/*.js', '<banner:meta.footer>'],
+        src: ['libs/*.js', 'modules/*.js', 'main-libs/main.js'],
         dest: 'scripts.js'
       }
     },

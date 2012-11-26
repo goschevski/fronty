@@ -27,10 +27,3 @@ var App = (function (parent, $) {
 		init: init
 	};
 })(App || {}, jQuery);
-/*--------------------------------------
-* MAIN JS FILE
----------------------------------------*/
-
-$(function () {
-	App.init();
-});
