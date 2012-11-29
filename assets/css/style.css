@@ -347,7 +347,7 @@ html {
       height: 22px;
       width: 23px;
       background: url('../img/icons-s04ab3beae4.png') 0 0; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
     .star {
       height: 22px;
       width: 23px;
