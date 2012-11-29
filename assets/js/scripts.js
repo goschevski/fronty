@@ -5,7 +5,7 @@ var App = (function (parent, $) {
 		holder: 'body'
 	};
 
-	function init (options) {
+	parent.init = function (options) {
 		// Extend config with options
 		$.extend(config, options);
 
@@ -22,11 +22,10 @@ var App = (function (parent, $) {
 				App[modules[i]]();
 			}
 		}
-	}
-
-	return {
-		init: init
 	};
+
+	return parent;
+
 })(App || {}, jQuery);
 /*--------------------------------------
 * MAIN JS FILE
