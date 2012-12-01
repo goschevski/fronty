@@ -14,7 +14,7 @@ This is my boilerplate for starting new projects.
  * scripts.min.js - minified scripts.js file
  * /modules - folder for js modules
  * /libs - folder for js libraries
- * /main-libs - folder for libraries that aren't minified in scripts.min.js
+ * /main - folder for main js files such as jQuery, Modernizr, App module, etc.
 
 ##Sass
  * style.scss - SCSS file which includes all partials

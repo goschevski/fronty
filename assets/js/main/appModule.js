@@ -11,15 +11,17 @@ var App = (function (parent, $) {
 
 		// Variables
 		var holder = $(config.holder).data('modules'),
-			modules, i;
+			modules, submodule, i;
 
 		// Create modules array
 		modules = holder ? holder.split(" ") : [];
 
-		// Run modules from holder
 		if (modules.length > 0) {
 			for (i = modules.length - 1; i >= 0; i--) {
-				App[modules[i]]();
+				// Create submodule array
+				submodule = modules[i].split("-");
+				// Run modules from holder
+				App[submodule[0]][submodule[1]]();
 			}
 		}
 	};
