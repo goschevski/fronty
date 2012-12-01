@@ -12,9 +12,9 @@ This is my boilerplate for starting new projects.
  * grunt.js - grunt config file
  * scripts.js - concated js files
  * scripts.min.js - minified scripts.js file
- * /files - folder for js partials
+ * /modules - folder for js modules
  * /libs - folder for js libraries
- * /main-libs - folder for main js libraries
+ * /main-libs - folder for libraries that aren't minified in scripts.min.js
 
 ##Sass
  * style.scss - SCSS file which includes all partials
@@ -28,12 +28,12 @@ This is my boilerplate for starting new projects.
  * _footer.scss - file for styling footer
  * _lists.scss - file for styling lists
  * _buttons.scss - file for styling buttons
+ * _forms.scss - file for styling forms
 
 ###Helpers Folder###
  * _variables.scss - file for global variables
  * _functions.scss - file for custom functions
  * _mixins.scss - file for custom mixins
- * _sprites.scss - file for generating sprites
  * _typography.scss - file for typography (font-faces, mixins etc.)
  * _helpers.scss - file with helper classes
  * _ie.scss - file for ie fixes
