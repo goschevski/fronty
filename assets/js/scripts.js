@@ -20,8 +20,12 @@ var App = (function (parent, $) {
 			for (i = modules.length - 1; i >= 0; i--) {
 				// Create submodule array
 				submodule = modules[i].split("-");
+
 				// Run modules from holder
-				App[submodule[0]][submodule[1]]();
+				if (submodule[0] === 'app')
+					App[submodule[1]]();
+				else
+					App[submodule[0]][submodule[1]]();
 			}
 		}
 	};
@@ -29,6 +33,26 @@ var App = (function (parent, $) {
 	return parent;
 
 })(App || {}, jQuery);
+App.tabs = (function (parent, $) {
+
+	var config = {
+		wrapper: '.wrapper'
+	};
+
+	parent.init = function (options) {
+		// Extend config with users options
+		$.extend(config, options);
+
+		// Cache elements
+		var $wrapper = $(config.wrapper);
+
+		console.log('tabs initialized');
+
+	};
+
+	return parent;
+
+})(App.tabs || {}, jQuery);
 /*--------------------------------------
 * MAIN JS FILE
 ---------------------------------------*/

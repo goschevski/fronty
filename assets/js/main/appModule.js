@@ -20,8 +20,12 @@ var App = (function (parent, $) {
 			for (i = modules.length - 1; i >= 0; i--) {
 				// Create submodule array
 				submodule = modules[i].split("-");
+
 				// Run modules from holder
-				App[submodule[0]][submodule[1]]();
+				if (submodule[0] === 'app')
+					App[submodule[1]]();
+				else
+					App[submodule[0]][submodule[1]]();
 			}
 		}
 	};
