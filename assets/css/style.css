@@ -335,26 +335,6 @@ html {
  * MIXINS
 ---------------------------------------*/
 /*--------------------------------------
- * SPRITES
----------------------------------------*/
-.star {
-  display: inline-block;
-  height: 55px;
-  width: 59px;
-  background: url('../img/icons-retina-s223dce8dfb.png') 0 0; }
-  @media only screen and (min-width: 320px) and (max-width: 480px) {
-    .star {
-      height: 22px;
-      width: 23px;
-      background: url('../img/icons-s04ab3beae4.png') 0 0; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-    .star {
-      height: 22px;
-      width: 23px;
-      background: url('../img/icons-retina/star2x.png') no-repeat center center;
-      background-size: 100%; } }
-
-/*--------------------------------------
  * TYPOGRAPHY
 ---------------------------------------*/
 /*--------------------------------------
@@ -362,11 +342,6 @@ html {
 ---------------------------------------*/
 .container {
   overflow: hidden; }
-
-.star {
-  text-indent: -119988px;
-  overflow: hidden;
-  text-align: left; }
 
 .clear {
   clear: both; }
@@ -420,6 +395,9 @@ a {
 .container {
   max-width: 960px;
   margin: 0.5em auto; }
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    .container {
+      width: 95%; } }
 
 /*--------------------------------------
  * LISTS

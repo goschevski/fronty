@@ -1,36 +1,64 @@
-var App = (function (parent, $) {
+var App = (function (me, $) {
 
-	// Default config
-	var config = {
-		holder: 'body'
-	};
+    // Default config
+    var _config = {
+        holder: 'body'
+    },
 
-	parent.init = function (options) {
-		// Extend config with options
-		$.extend(config, options);
+    /* Checks if submodule exist and if route is good call method */
+    _executeSubmodule = function (obj, parts) {
+        var i = 0,
+            partsLen = parts.length,
+            part;
 
-		// Variables
-		var holder = $(config.holder).data('modules'),
-			modules, submodule, i;
+        for (; i < partsLen; i++) {
+            part = parts[i];
 
-		// Create modules array
-		modules = holder ? holder.split(" ") : [];
+            if (obj !== null && typeof obj === "object" && part in obj) {
+                obj = obj[part];
+            } else {
+                return false;
+            }
+        }
 
-		if (modules.length > 0) {
-			for (i = modules.length - 1; i >= 0; i--) {
-				// Create submodule array
-				submodule = modules[i].split("-");
+        return obj && obj.call(me);
+    },
 
-				// Run modules from holder
-				if (submodule[0] === 'app')
-					App[submodule[1]]();
-				else
-					App[submodule[0]][submodule[1]]();
-			}
-		}
-	};
+    /* Takes module names from holder and run it */
+    _loadSubmodules = function(options) {
+        // Extend config with options
+        $.extend(_config, options);
 
-	return parent;
+        var holder = $(_config.holder).data('modules'),
+            modules = holder ? holder.split(" ") : [],
+            modulesLength = modules.length,
+            submodule;
+
+        while ( modulesLength && modulesLength-- ) {
+            submodule = modules[modulesLength].split("-");
+            _executeSubmodule( me, submodule );
+        }
+    },
+
+    /* Hide address bar on mobile devices (except if #hash present, so we don't mess up deep linking). */
+    _removeAddressBar = function () {
+        if (Modernizr.touch && !window.location.hash) {
+            $(window).load(function () {
+                setTimeout(function () {
+                    window.scrollTo(0, 1);
+                }, 0);
+            });
+        }
+    };
+
+    me.init = function (options) {
+        return {
+            submodules: _loadSubmodules(options),
+            addressbar: _removeAddressBar()
+        };
+    };
+
+    return me;
 
 })(App || {}, jQuery);
 /*--------------------------------------

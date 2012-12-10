@@ -14,4 +14,8 @@ a { text-decoration: none; }
 	@extend %clearfix;
 	max-width: 960px;
 	margin: 0.5em auto;
+
+	@include responsive(smartphone) {
+		width: 95%;
+	}
 }
