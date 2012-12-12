@@ -3,6 +3,7 @@
 	"launch_in_dev": [ "chrome"	],
 	"src_files": [
 		"main/jquery-*.js",
+		"main/modernizr-*.js",
 		"scripts.js",
 		"tests/*.js"
 	]
