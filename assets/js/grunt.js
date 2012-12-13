@@ -5,12 +5,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     lint: {
-      files: ['grunt.js', 'main/appModule.js', 'main/main.js', 'modules/*.js']
+      files: ['grunt.js', 'main/app.js', 'main/main.js', 'modules/*.js']
     },
 
     concat: {
       dist: {
-        src: ['libs/*.js', 'main/appModule.js', 'modules/*.js', 'main/main.js'],
+        src: ['libs/*.js', 'main/app.js', 'modules/*.js', 'main/main.js'],
         dest: 'scripts.js'
       }
     },
@@ -31,7 +31,6 @@ module.exports = function(grunt) {
       options: {
         browser: true,
         latedef: true,
-        unused: true,
         onevar: true
       },
       globals: {
