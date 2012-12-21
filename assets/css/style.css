@@ -341,7 +341,12 @@ html {
  * HELPERS
 ---------------------------------------*/
 .container {
-  overflow: hidden; }
+  *zoom: 1; }
+  .container:before, .container:after {
+    content: "";
+    display: table; }
+  .container:after {
+    clear: both; }
 
 .clear {
   clear: both; }
