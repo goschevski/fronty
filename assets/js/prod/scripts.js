@@ -53,10 +53,8 @@
         };
 
         me.init = function (options) {
-            return {
-                submodules: _loadSubmodules(options),
-                addressbar: _removeAddressBar()
-            };
+            _loadSubmodules(options);
+            _removeAddressBar();
         };
 
         return me;
@@ -67,6 +65,6 @@
 * MAIN JS FILE
 ---------------------------------------*/
 
-(function ($) {
+$(function () {
 	App.init();
-})(jQuery);
+});

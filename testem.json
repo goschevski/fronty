@@ -1,0 +1,9 @@
+{
+	"framework": "jasmine",
+	"src_files": [
+		"assets/js/vendor/jquery-*.js",
+		"assets/js/vendor/modernizr-*.js",
+		"assets/js/prod/scripts.js",
+		"assets/js/tests/*.js"
+	]
+}

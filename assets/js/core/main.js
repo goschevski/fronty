@@ -2,6 +2,6 @@
 * MAIN JS FILE
 ---------------------------------------*/
 
-(function ($) {
+$(function () {
 	App.init();
-})(jQuery);
+});

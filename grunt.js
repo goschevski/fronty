@@ -5,20 +5,20 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     lint: {
-      files: ['grunt.js', 'main/app.js', 'main/main.js', 'modules/*.js']
+      files: ['grunt.js', 'assets/js/core/*.js', 'modules/*.js']
     },
 
     concat: {
       dist: {
-        src: ['libs/*.js', 'main/app.js', 'modules/*.js', 'main/main.js'],
-        dest: 'scripts.js'
+        src: ['assets/js/libs/*.js', 'assets/js/core/app.js', 'assets/js/modules/*.js', 'assets/js/core/main.js'],
+        dest: 'assets/js/prod/scripts.js'
       }
     },
 
     min: {
       dist: {
         src: ['<config:concat.dist.dest>'],
-        dest: 'scripts.min.js'
+        dest: 'assets/js/prod/scripts.min.js'
       }
     },
 
