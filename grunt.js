@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     lint: {
-      files: ['grunt.js', 'assets/js/core/*.js', 'modules/*.js']
+      files: ['grunt.js', 'assets/js/core/*.js', 'assets/js/modules/*.js']
     },
 
     concat: {
