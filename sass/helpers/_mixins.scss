@@ -28,20 +28,22 @@
 }
 
 @mixin responsive-sprite($icon) {
-    $icon2x: "icons-retina/#{$icon}2x.png";
-    $icon-retina: "#{$icon}2x";
-    @include sprite-dimensions($icons2x, $icon-retina);
-    background: sprite($icons2x, $icon-retina);
+    $iconname: "icons/#{$icon}.png";
+    $iconwidth: ceil(image-width($iconname))/2;
+    $iconheight: ceil(image-height($iconname))/2;
+
+    $pos: sprite-position($icons, $icon);
+    $posx: ceil(nth($pos, 1)/2);
+    $posy: ceil(nth($pos, 2)/2);
+
+    @include sprite-dimensions($icons, $icon);
+    background: sprite($icons, $icon);
 
     @include responsive(smartphone) {
-        @include sprite-dimensions($icons, $icon);
-        background: sprite($icons, $icon);
-    }
-
-    @include responsive(retina) {
-        @include sprite-dimensions($icons, $icon);
-        background: image-url($icon2x) no-repeat center center;
-        background-size: 100%;
+        width: $iconwidth;
+        height: $iconheight;
+        background: sprite-url($icons) $posx $posy no-repeat;
+        @include background-size(ceil(image-width(sprite-path($icons)) / 2) auto);
     }
 }
 
