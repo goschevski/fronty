@@ -36,15 +36,10 @@
     $posx: round(nth($pos, 1)/2);
     $posy: round(nth($pos, 2)/2);
 
-    @include sprite-dimensions($icons, $icon);
-    background: sprite($icons, $icon);
-
-    @include responsive(smartphone) {
-        width: $iconwidth;
-        height: $iconheight;
-        background: sprite-url($icons) $posx $posy no-repeat;
-        @include background-size(round(image-width(sprite-path($icons)) / 2) auto);
-    }
+    width: $iconwidth;
+    height: $iconheight;
+    background: sprite-url($icons) $posx $posy no-repeat;
+    @include background-size(round(image-width(sprite-path($icons)) / 2) auto);
 }
 
 @mixin input-placeholder {
