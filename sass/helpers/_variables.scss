@@ -13,8 +13,7 @@ $base-line-height: 21px;
 @include establish-baseline;
 
 // Sprites
-$icons: sprite-map("icons/*.png");
-$icons-layout: smart;
+$icons: sprite-map("icons/*.png", $spacing: 3px);
 
 // Colors
 $main-color: #049cdb;
