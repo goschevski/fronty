@@ -29,12 +29,12 @@
 
 @mixin responsive-sprite($icon) {
     $iconname: "icons/#{$icon}.png";
-    $iconwidth: ceil(image-width($iconname))/2;
-    $iconheight: ceil(image-height($iconname))/2;
+    $iconwidth: round(image-width($iconname)/2);
+    $iconheight: round(image-height($iconname)/2);
 
     $pos: sprite-position($icons, $icon);
-    $posx: ceil(nth($pos, 1)/2);
-    $posy: ceil(nth($pos, 2)/2);
+    $posx: round(nth($pos, 1)/2);
+    $posy: round(nth($pos, 2)/2);
 
     @include sprite-dimensions($icons, $icon);
     background: sprite($icons, $icon);
@@ -43,7 +43,7 @@
         width: $iconwidth;
         height: $iconheight;
         background: sprite-url($icons) $posx $posy no-repeat;
-        @include background-size(ceil(image-width(sprite-path($icons)) / 2) auto);
+        @include background-size(round(image-width(sprite-path($icons)) / 2) auto);
     }
 }
 
