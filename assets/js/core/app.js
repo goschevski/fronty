@@ -1,63 +1,46 @@
-;(function () {
-    window.App = (function (me, $) {
+/*--------------------------------------
+* App Core
+---------------------------------------*/
 
-        // Default config
-        var _config = {
-            holder: 'body'
-        },
+;(function ($) {
+    window.App = {
+        Views: {},
+        Core: {},
+        Instances: {},
+        Utils: {
+            log: function() {
+                window.console && console.log('App log:', Array.prototype.slice.call(arguments));
+            },
+            has: function(obj, key) {
+                return Object.hasOwnProperty.call(obj, key);
+            },
+            extend: function(protoProps, staticProps) {
+                var parent = this,
+                    child;
 
-        /* Checks if submodule exist and if route is good call method */
-        _executeSubmodule = function (obj, parts) {
-            var i = 0,
-                partsLen = parts.length,
-                part;
-
-            for (; i < partsLen; i++) {
-                part = parts[i];
-
-                if (obj !== null && typeof obj === "object" && part in obj) {
-                    obj = obj[part];
+                if (protoProps && App.Utils.has(protoProps, 'constructor')) {
+                    child = protoProps.constructor;
                 } else {
-                    return false;
+                    child = function () {
+                        return parent.apply(this, arguments);
+                    };
                 }
+
+                $.extend(child, parent, staticProps);
+
+                var Surrogate = function() {
+                        this.constructor = child;
+                    };
+                Surrogate.prototype = parent.prototype;
+                child.prototype = new Surrogate();
+
+                if (protoProps) {
+                    $.extend(child.prototype, protoProps);
+                }
+
+                child.__super__ = parent.prototype;
+                return child;
             }
-
-            return obj && obj.call(me);
-        },
-
-        /* Takes module names from holder and run it */
-        _loadSubmodules = function(options) {
-            // Extend config with options
-            $.extend(_config, options);
-
-            var holder = $(_config.holder).data('modules'),
-                modules = holder ? holder.split(" ") : [],
-                modulesLength = modules.length,
-                submodule;
-
-            while ( modulesLength && modulesLength-- ) {
-                submodule = modules[modulesLength].split("-");
-                _executeSubmodule( me, submodule );
-            }
-        },
-
-        /* Hide address bar on mobile devices (except if #hash present, so we don't mess up deep linking). */
-        _removeAddressBar = function () {
-            if (Modernizr.touch && !window.location.hash) {
-                $(window).load(function () {
-                    setTimeout(function () {
-                        window.scrollTo(0, 1);
-                    }, 0);
-                });
-            }
-        };
-
-        me.init = function (options) {
-            _loadSubmodules(options);
-            _removeAddressBar();
-        };
-
-        return me;
-
-    })(window.App || {}, jQuery);
-})();
+        }
+    };
+})(jQuery);

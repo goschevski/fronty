@@ -5,12 +5,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     lint: {
-      files: ['grunt.js', 'assets/js/core/*.js', 'assets/js/modules/*.js']
+      files: ['grunt.js', 'assets/js/core/*.js', 'assets/js/views/*.js', 'assets/js/vendor/main.js']
     },
 
     concat: {
       dist: {
-        src: ['assets/js/libs/*.js', 'assets/js/core/app.js', 'assets/js/modules/*.js', 'assets/js/core/main.js'],
+        src: ['assets/js/libs/*.js', 'assets/js/core/*.js', 'assets/js/views/*.js', 'assets/js/vendor/main.js'],
         dest: 'assets/js/prod/scripts.js'
       }
     },
@@ -24,14 +24,14 @@ module.exports = function(grunt) {
 
     watch: {
       files: '<config:lint.files>',
-      tasks: 'lint concat min'
+      tasks: 'concat min'
     },
 
     jshint: {
       options: {
         browser: true,
         latedef: true,
-        onevar: true
+        onevar: false
       },
       globals: {
         jQuery: false
