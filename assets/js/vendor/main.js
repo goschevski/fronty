@@ -14,6 +14,10 @@ $(function () {
 		});
 	}
 
+	$('body').on('click', 'label', function (e) {
+		e.stopPropagation();
+	});
+
 	/* Placeholder backup */
 	if(!Modernizr.input.placeholder){
 		('[placeholder]').focus(function() {
