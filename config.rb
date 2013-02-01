@@ -6,9 +6,6 @@ images_dir = "assets/img"
 javascripts_dir = "assets/js"
 fonts_dir = "assets/fonts"
 
-# Sass globbing plugin
-require 'sass-globbing'
-
 # Options
 output_style = :compressed
 relative_assets = true

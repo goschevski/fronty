@@ -2,14 +2,24 @@
  * LIBRARIES
 ---------------------------------------*/
 @import "compass";
-@import "lib/*";
+@import "lib/normalize";
 
 /*--------------------------------------
  * HELPERS
 ---------------------------------------*/
-@import "helpers/*";
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "helpers/ie";
+@import "helpers/typography";
+@import "helpers/helpers";
 
 /*--------------------------------------
  * MAIN STYLES
 ---------------------------------------*/
-@import "modules/*";
+@import "modules/layout";
+@import "modules/lists";
+@import "modules/buttons";
+@import "modules/forms";
+@import "modules/header";
+@import "modules/footer";
