@@ -6,6 +6,9 @@ images_dir = "assets/img"
 javascripts_dir = "assets/js"
 fonts_dir = "assets/fonts"
 
+# Plugins and Libraries
+require 'compass-normalize'
+
 # Options
 output_style = :compressed
 relative_assets = true
