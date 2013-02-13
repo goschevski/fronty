@@ -9,8 +9,12 @@
 
     App.Views.App = View.extend({
         initialize: function() {
+        	this.render();
+        },
+
+        render: function () {
         	// Create instances here
             // App.Instances.Tabs = new App.Views.Tabs();
-        },
+        }
     });
 })(App || {}, jQuery);
