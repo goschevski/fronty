@@ -15,6 +15,8 @@
 
     $.extend( View.prototype, {
         el: '',
+        tagName: 'div',
+        className: '',
         initialize: $.noop,
         events: {},
         render: function () {
@@ -24,10 +26,11 @@
             return this.el.find(selector);
         },
         _setElement: function () {
-            if (!this.el) {
-                this.el = document.body;
-            }
             this.el = this.el instanceof jQuery ? this.el : $(this.el);
+            if (!this.el.length) {
+                this.el = $('<' + this.tagName + '></' + this.tagName + '>');
+                this.className && this.el.addClass(this.className);
+            }
         },
         _bindEvents: function () {
             if ($.isEmptyObject(this.events)) { return; }
