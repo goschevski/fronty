@@ -130,7 +130,7 @@
 ---------------------------------------*/
 
 $(function () {
-	App = new App.Views.App();
+	app = new App.Views.App();
 
 	/* Hide address bar on mobile devices (except if #hash present, so we don't mess up deep linking). */
 	if (Modernizr.touch && !window.location.hash) {
