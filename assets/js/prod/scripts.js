@@ -115,11 +115,11 @@
 
     App.Views.App = View.extend({
         initialize: function() {
-        	this.render();
+            this.render();
         },
 
         render: function () {
-        	// Create instances here
+            // Create instances here
             // App.Instances.Tabs = new App.Views.Tabs();
         }
     });
