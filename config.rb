@@ -10,7 +10,7 @@ fonts_dir = "assets/fonts"
 require 'compass-normalize'
 
 # Options
-output_style = :compressed
+output_style = :nested
 relative_assets = true
 line_comments = false
 

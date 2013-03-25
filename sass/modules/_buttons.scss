@@ -2,3 +2,16 @@
  * BUTTONS
 ---------------------------------------*/
 
+.btn {
+
+	// Sizes
+	&.block {}
+	&.small {}
+	&.big {}
+	&.medium {}
+
+	// Styles
+	&.primary {}
+	&.action {}
+	&.disabled {}
+}

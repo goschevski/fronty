@@ -7,23 +7,27 @@
     font-size: $size + rem;
 }
 
-@mixin responsive($device) {
-    @if $device == smartphone {
+@mixin responsive($value) {
+    @if $value == smartphone {
         @media only screen and (min-width : 320px) and (max-width : 480px) { @content; }
     }
 
-    @if $device == tablet {
+    @else if $value == tablet {
         @media only screen and (min-width : 768px) and (max-width : 1024px) { @content; }
     }
 
-    @if $device == desktop {
+    @else if $value == desktop {
         @media only screen and (min-width : 1224px) { @content; }
     }
 
-    @if $device == retina {
+    @else if $value == retina {
         @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
             @content;
         }
+    }
+
+    @else {
+        @media (max-width: #{$value}) { @content; }
     }
 }
 
@@ -40,6 +44,19 @@
     height: $iconheight;
     background: sprite-url($icons) $posx $posy no-repeat;
     @include background-size(round(image-width(sprite-path($icons)) / 2) round(image-height(sprite-path($icons)) / 2));
+}
+
+@mixin icon ($icon, $side) {
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        #{$side}: 0.5em;
+        margin-top: -((image-height("icons/#{$icon}.png"))/4);
+        @include responsive-sprite($icon);
+    }
 }
 
 @mixin input-placeholder {

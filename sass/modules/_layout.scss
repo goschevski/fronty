@@ -2,20 +2,16 @@
  * LAYOUT
 ---------------------------------------*/
 
-*, *:before, *:after {
-	@include box-sizing(border-box);
-	-webkit-tap-highlight-color: black(0);
-}
-
-img { max-width: 100%; }
-a { text-decoration: none; }
-
 .container {
 	@extend %clearfix;
 	max-width: 960px;
 	margin: 0.5em auto;
 
 	@include responsive(smartphone) {
+		width: 95%;
+	}
+
+	@include responsive(tablet) {
 		width: 95%;
 	}
 }
