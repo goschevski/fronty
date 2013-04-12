@@ -15,3 +15,30 @@
 		width: 95%;
 	}
 }
+
+%media {
+	@extend %clearfix;
+
+	.media-image {
+		width: 20%;
+		float: left;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.media-content {
+		@extend %clearfix;
+		width: 80%;
+		float: left;
+		padding-left: 1em;
+	}
+}
+
+%media-big {
+	@extend %media;
+	.media-image { width: 40%; }
+	.media-content { width: 60%; }
+}

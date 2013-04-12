@@ -4,7 +4,11 @@
 
 header {
 
-	h1 {
-		a {}
+	.logo {
+		a {
+			@extend %hide-text;
+			display: block;
+			@include responsive-sprite(star);
+		}
 	}
 }

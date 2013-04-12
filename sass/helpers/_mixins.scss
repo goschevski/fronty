@@ -9,11 +9,11 @@
 
 @mixin responsive($value) {
     @if $value == smartphone {
-        @media only screen and (min-width : 320px) and (max-width : 480px) { @content; }
+        @media only screen and (max-width : 767px) { @content; }
     }
 
     @else if $value == tablet {
-        @media only screen and (min-width : 768px) and (max-width : 1024px) { @content; }
+        @media only screen and (min-width : 768px) { @content; }
     }
 
     @else if $value == desktop {
@@ -46,10 +46,18 @@
     @include background-size(round(image-width(sprite-path($icons)) / 2) round(image-height(sprite-path($icons)) / 2));
 }
 
-@mixin icon ($icon, $side) {
+@mixin icon ($icon, $side, $pseudo-element: '') {
     position: relative;
 
-    &:before {
+    @if $pseudo-element == '' {
+        @if $side == 'left' {
+            $pseudo-element: 'before';
+        } @else {
+            $pseudo-element: 'after';
+        }
+    }
+
+    &:#{$pseudo-element} {
         content: "";
         position: absolute;
         top: 50%;
