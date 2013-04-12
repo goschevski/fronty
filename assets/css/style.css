@@ -439,9 +439,9 @@ a {
 ---------------------------------------*/
 header .logo a {
   display: block;
-  width: 30px;
-  height: 28px;
-  background-position: 0 0; }
+  width: 32px;
+  height: 30px;
+  background-position: 0 1px; }
 
 /*--------------------------------------
  * FOOTER

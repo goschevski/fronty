@@ -33,12 +33,12 @@
 
 @mixin responsive-sprite($icon) {
     $iconname: "icons/#{$icon}.png";
-    $iconwidth: round(image-width($iconname)/2);
-    $iconheight: round(image-height($iconname)/2);
+    $iconwidth: round(image-width($iconname)/2) + 2;
+    $iconheight: round(image-height($iconname)/2) + 2;
 
     $pos: sprite-position($icons, $icon);
     $posx: round(nth($pos, 1)/2);
-    $posy: round(nth($pos, 2)/2);
+    $posy: round(nth($pos, 2)/2) + 1px;
 
     width: $iconwidth;
     height: $iconheight;
@@ -46,8 +46,7 @@
     @extend %sprite;
 }
 
-@mixin icon ($icon, $side, $pseudo-element: '') {
-    position: relative;
+@mixin icon ($icon, $side, $inline: false, $pseudo-element: '') {
 
     @if $pseudo-element == '' {
         @if $side == 'left' {
@@ -57,12 +56,20 @@
         }
     }
 
+    position: relative;
     &:#{$pseudo-element} {
         content: "";
-        position: absolute;
-        top: 50%;
-        #{$side}: 0.5em;
-        margin-top: -((image-height("icons/#{$icon}.png"))/4);
+        @if $inline == true {
+            display: inline-block;
+            vertical-align: middle;
+            @if $side == 'left' { margin-right: 0.5em; }
+            @else { margin-left: 0.5em; }
+        } @else {
+            position: absolute;
+            top: 50%;
+            #{$side}: 0.5em;
+            margin-top: -(((image-height("icons/#{$icon}.png"))+6px)/4);
+        }
         @include responsive-sprite($icon);
     }
 }
