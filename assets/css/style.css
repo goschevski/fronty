@@ -201,13 +201,20 @@ html {
 /*--------------------------------------
  * SPRITES
 ---------------------------------------*/
+header .logo a {
+  background-image: url('../img/icons-s86626ee251.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: 30px 28px;
+  -moz-background-size: 30px 28px;
+  background-size: 30px 28px; }
+
 /*--------------------------------------
  * COLORS
 ---------------------------------------*/
 /*--------------------------------------
  * GRADIENTS
 ---------------------------------------*/
-/*--------------------------------------
+ /*--------------------------------------
  * FUNCTIONS
 ---------------------------------------*/
 /*--------------------------------------
@@ -434,10 +441,7 @@ header .logo a {
   display: block;
   width: 30px;
   height: 28px;
-  background: url('../img/icons-s86626ee251.png') 0 0 no-repeat;
-  -webkit-background-size: 30px 28px;
-  -moz-background-size: 30px 28px;
-  background-size: 30px 28px; }
+  background-position: 0 0; }
 
 /*--------------------------------------
  * FOOTER

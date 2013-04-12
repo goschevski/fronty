@@ -14,6 +14,12 @@ $base-line-height: 21px;
 ---------------------------------------*/
 $icons: sprite-map("icons/*.png", $spacing: 3px);
 
+%sprite {
+	background-image: sprite-url($icons);
+	background-repeat: no-repeat;
+	@include background-size(round(image-width(sprite-path($icons)) / 2) round(image-height(sprite-path($icons)) / 2));
+}
+
 /*--------------------------------------
  * COLORS
 ---------------------------------------*/

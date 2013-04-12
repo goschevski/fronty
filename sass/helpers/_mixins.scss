@@ -27,7 +27,7 @@
     }
 
     @else {
-        @media (max-width: #{$value}) { @content; }
+        @media only screen and (max-width: #{$value}) { @content; }
     }
 }
 
@@ -42,8 +42,8 @@
 
     width: $iconwidth;
     height: $iconheight;
-    background: sprite-url($icons) $posx $posy no-repeat;
-    @include background-size(round(image-width(sprite-path($icons)) / 2) round(image-height(sprite-path($icons)) / 2));
+    background-position: $posx $posy;
+    @extend %sprite;
 }
 
 @mixin icon ($icon, $side, $pseudo-element: '') {
