@@ -1,0 +1,11 @@
+{
+	"name": "boilerplate",
+	"version": "1.0.0",
+	"dependencies": {
+		"jquery": "latest",
+		"requirejs": "latest",
+		"underscore-amd": "latest",
+		"backbone-amd": "latest",
+		"modernizr": "latest"
+	}
+}
