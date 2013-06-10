@@ -22,8 +22,10 @@
 
 <script src="assets/js/vendor/require.js"></script>
 <script>
-	require(['assets/js/common'], function (app) {
-		require(['pages/about']);
+	require(['assets/js/common'], function (common) {
+		require(['pages/home'], function (App) {
+			new App();
+		});
 	});
 </script>
 

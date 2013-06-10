@@ -1,5 +1,12 @@
-define(['backbone', '../views/first'], function (BB, homeView) {
-	var html = new homeView();
+/*
+|------------------------------------------------------------
+| This is the main file for home page
+|------------------------------------------------------------
+*/
 
-	$('.container').append( html.render().el );
+define(['backbone'], function (BB) {
+
+	var App = BB.View.extend({});
+
+	return App;
 });
