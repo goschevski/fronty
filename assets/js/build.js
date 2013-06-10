@@ -12,11 +12,6 @@
 		{
 			name: 'pages/home',
 			exclude: ['backbone']
-		},
-
-		{
-			name: 'pages/about',
-			exclude: ['backbone']
 		}
 	]
 })
