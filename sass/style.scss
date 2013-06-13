@@ -1,28 +1,59 @@
-/*--------------------------------------
- * LIBRARIES
----------------------------------------*/
-@import "helpers/config";
+/*
+|------------------------------------------------------------
+| Libs
+|------------------------------------------------------------
+*/
+
+@import "config/config";
 @import "compass";
 @import "normalize";
+@import "config/variables";
 
-/*--------------------------------------
- * HELPERS
----------------------------------------*/
-@import "helpers/variables";
+/*
+|------------------------------------------------------------
+| Mixins
+|------------------------------------------------------------
+*/
+
+@import "mixins/retina-sprite";
+@import "mixins/breakpoint";
+@import "mixins/icon";
+@import "mixins/rem";
+@import "mixins/input-placeholder";
+
+/*
+|------------------------------------------------------------
+| Base
+|------------------------------------------------------------
+*/
+
+@import "base/base";
+@import "base/typography";
+
+/*
+|------------------------------------------------------------
+| Helpers
+|------------------------------------------------------------
+*/
+
 @import "helpers/functions";
-@import "helpers/mixins";
-@import "helpers/ie";
-@import "helpers/typography";
 @import "helpers/helpers";
 
-/*--------------------------------------
- * MAIN STYLES
----------------------------------------*/
-@import "modules/base";
-@import "modules/layout";
-@import "modules/grid";
-@import "modules/lists";
-@import "modules/buttons";
-@import "modules/forms";
-@import "modules/header";
-@import "modules/footer";
+/*
+|------------------------------------------------------------
+| Layout
+|------------------------------------------------------------
+*/
+
+@import "layout/grid";
+@import "layout/media";
+@import "layout/buttons";
+@import "layout/forms";
+@import "layout/lists";
+
+/*
+|------------------------------------------------------------
+| Modules
+|------------------------------------------------------------
+*/
+

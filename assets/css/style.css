@@ -1,11 +1,15 @@
-/*--------------------------------------
- * LIBRARIES
----------------------------------------*/
-/*--------------------------------------
- * SETTINGS
----------------------------------------*/
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
-/* normalize.css v2.1.0 | HTML5 Display Definitions | MIT License | git.io/normalize */
+/*
+|------------------------------------------------------------
+| Libs
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Settings
+|------------------------------------------------------------
+*/
+/* normalize.css v2.0.1 | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | HTML5 Display Definitions | MIT License | git.io/normalize */
 article,
 aside,
 details,
@@ -14,7 +18,6 @@ figure,
 footer,
 header,
 hgroup,
-main,
 nav,
 section,
 summary {
@@ -32,7 +35,7 @@ audio:not([controls]) {
 [hidden] {
   display: none; }
 
-/* normalize.css v2.1.0 | Base | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Base | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -41,7 +44,7 @@ html {
 body {
   margin: 0; }
 
-/* normalize.css v2.1.0 | Links | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Links | MIT License | git.io/normalize */
 a:focus {
   outline: thin dotted; }
 
@@ -49,10 +52,9 @@ a:active,
 a:hover {
   outline: 0; }
 
-/* normalize.css v2.1.0 | Typography | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Typography | MIT License | git.io/normalize */
 h1 {
-  font-size: 2em;
-  margin: 0.67em 0; }
+  font-size: 2em; }
 
 abbr[title] {
   border-bottom: 1px dotted; }
@@ -63,11 +65,6 @@ strong {
 
 dfn {
   font-style: italic; }
-
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0; }
 
 mark {
   background: #ff0;
@@ -104,20 +101,20 @@ sup {
 sub {
   bottom: -0.25em; }
 
-/* normalize.css v2.1.0 | Embedded Content | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Embedded Content | MIT License | git.io/normalize */
 img {
   border: 0; }
 
 svg:not(:root) {
   overflow: hidden; }
 
-/* normalize.css v2.1.0 | Figures | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Figures | MIT License | git.io/normalize */
 figure {
   margin: 0; }
 
-/* normalize.css v2.1.0 | Forms | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Forms | MIT License | git.io/normalize */
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -139,10 +136,6 @@ input {
   line-height: normal; }
 
 button,
-select {
-  text-transform: none; }
-
-button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -150,7 +143,7 @@ input[type="submit"] {
   cursor: pointer; }
 
 button[disabled],
-html input[disabled] {
+input[disabled] {
   cursor: default; }
 
 input[type="checkbox"],
@@ -177,20 +170,16 @@ textarea {
   overflow: auto;
   vertical-align: top; }
 
-/* normalize.css v2.1.0 | Tables | MIT License | git.io/normalize */
+/* normalize.css v2.0.1 | Tables | MIT License | git.io/normalize */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*--------------------------------------
- * HELPERS
----------------------------------------*/
-/*--------------------------------------
- * VARIABLES
----------------------------------------*/
-/*--------------------------------------
- * VERTICAL RHYTHM
----------------------------------------*/
+/*
+|------------------------------------------------------------
+| Variables
+|------------------------------------------------------------
+*/
 * html {
   font-size: 87.5%; }
 
@@ -198,31 +187,46 @@ html {
   font-size: 14px;
   line-height: 1.5em; }
 
-/*--------------------------------------
- * SPRITES
----------------------------------------*/
-header .logo a {
-  background-image: url('../img/icons-s86626ee251.png');
-  background-repeat: no-repeat;
-  -webkit-background-size: 30px 28px;
-  -moz-background-size: 30px 28px;
-  background-size: 30px 28px; }
-
-/*--------------------------------------
- * COLORS
----------------------------------------*/
-/*--------------------------------------
- * GRADIENTS
----------------------------------------*/
- /*--------------------------------------
- * FUNCTIONS
----------------------------------------*/
-/*--------------------------------------
- * MIXINS
----------------------------------------*/
-/*--------------------------------------
- * IE FIX
----------------------------------------*/
+/*
+|------------------------------------------------------------
+| Mixins
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Retina sprite mixin
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Breakpoint mixin
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Icon mixin
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Rem mixin
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Input placeholder mixin
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Base
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Base
+|------------------------------------------------------------
+*/
 .chromeframe {
   width: 100%;
   position: absolute;
@@ -233,9 +237,32 @@ header .logo a {
   color: black;
   padding: 0.2em 0; }
 
-/*--------------------------------------
- * TYPOGRAPHY
----------------------------------------*/
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: black(0); }
+
+[placeholder]:focus::-webkit-input-placeholder {
+  -webkit-transition: text-indent 0.5s 0.5s;
+  -webkit-transition-delay: ease;
+  -moz-transition: text-indent 0.5s 0.5s ease;
+  transition: text-indent 0.5s 0.5s ease;
+  text-indent: -100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1; }
+
+img {
+  max-width: 100%; }
+
+a {
+  text-decoration: none; }
+
+/*
+|------------------------------------------------------------
+| Typography
+|------------------------------------------------------------
+*/
 /* @include font-face(
 	"FontName",
 	font-files(
@@ -244,25 +271,21 @@ header .logo a {
 		"FontName.svg"),
 	"FontName.eot"
 ); */
-/*--------------------------------------
- * HELPERS
----------------------------------------*/
-.container, .media-list, .media-list .media-content, .module {
-  *zoom: 1; }
-  .container:before, .media-list:before, .media-list .media-content:before, .module:before, .container:after, .media-list:after, .media-list .media-content:after, .module:after {
-    content: "";
-    display: table; }
-  .container:after, .media-list:after, .media-list .media-content:after, .module:after {
-    clear: both; }
-
-header .logo a {
-  text-indent: -119988px;
-  overflow: hidden;
-  text-align: left; }
-
-/*--------------------------------------
- * HELPER CLASSES
----------------------------------------*/
+/*
+|------------------------------------------------------------
+| Helpers
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Functions
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Helpers
+|------------------------------------------------------------
+*/
 .hide {
   display: none; }
 
@@ -305,144 +328,38 @@ header .logo a {
 .strong {
   font-weight: bold; }
 
-/*--------------------------------------
- * MAIN STYLES
----------------------------------------*/
-/*--------------------------------------
- * BASE
----------------------------------------*/
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-
-[placeholder]:focus::-webkit-input-placeholder {
-  -webkit-transition: text-indent 0.5s 0.5s;
-  -webkit-transition-delay: ease;
-  -moz-transition: text-indent 0.5s 0.5s ease;
-  transition: text-indent 0.5s 0.5s ease;
-  text-indent: -100%;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1; }
-
-img {
-  max-width: 100%; }
-
-a {
-  text-decoration: none; }
-
-/*--------------------------------------
- * LAYOUT
----------------------------------------*/
-.container {
-  max-width: 960px;
-  margin: 0.5em auto; }
-  @media only screen and (max-width: 767px) {
-    .container {
-      width: 95%; } }
-  @media only screen and (min-width: 768px) {
-    .container {
-      width: 95%; } }
-
-.media-list .media-image {
-  width: 20%;
-  float: left; }
-  .media-list .media-image img {
-    display: block;
-    width: 100%; }
-.media-list .media-content {
-  width: 80%;
-  float: left;
-  padding-left: 1em; }
-
-/*--------------------------------------
- * GRID
----------------------------------------*/
-.col-full, .col-1-3, .col-2-3, .col-1-2, .col-1-4, .col-3-4 {
-  float: left;
-  padding: 0 1em; }
-  @media only screen and (max-width: 767px) {
-    .col-full, .col-1-3, .col-2-3, .col-1-2, .col-1-4, .col-3-4 {
-      width: 100% !important;
-      margin: 0 auto;
-      float: none; } }
-  @media only screen and (max-width: 767px) {
-    .fluid.col-full, .fluid.col-1-3, .fluid.col-2-3, .fluid.col-1-2, .fluid.col-1-4, .fluid.col-3-4 {
-      float: left;
-      margin: 0; } }
-
-.col-full {
-  width: 100%; }
-
-.col-1-3 {
-  width: 33.33%; }
-  @media only screen and (max-width: 767px) {
-    .fluid.col-1-3 {
-      width: 33.33% !important; } }
-
-.col-2-3 {
-  width: 66.66%; }
-  @media only screen and (max-width: 767px) {
-    .fluid.col-2-3 {
-      width: 66.66% !important; } }
-
-.col-1-2 {
-  width: 50%; }
-  @media only screen and (max-width: 767px) {
-    .fluid.col-1-2 {
-      width: 50% !important; } }
-
-.col-1-4 {
-  width: 25%; }
-  @media only screen and (max-width: 767px) {
-    .fluid.col-1-4 {
-      width: 25% !important; } }
-
-.col-3-4 {
-  width: 75%; }
-  @media only screen and (max-width: 767px) {
-    .fluid.col-3-4 {
-      width: 75% !important; } }
-
-/* CLASSES */
-/*--------------------------------------
- * LISTS
----------------------------------------*/
-.media-list {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.media-list li {
-  margin-bottom: 0.5em; }
-
-/*--------------------------------------
- * BUTTONS
----------------------------------------*/
-.btn {
-  /*--------------------------------------
-   * SIZES
-  ---------------------------------------*/
-  /*--------------------------------------
-   * STYLES
-  ---------------------------------------*/
-  /*--------------------------------------
-   * ICONS
-  ---------------------------------------*/ }
-
-/*--------------------------------------
- * FORMS AND INPUTS
----------------------------------------*/
-/*--------------------------------------
- * HEADER
----------------------------------------*/
-header .logo a {
-  display: block;
-  width: 32px;
-  height: 30px;
-  background-position: 0 1px; }
-
-/*--------------------------------------
- * FOOTER
----------------------------------------*/
+/*
+|------------------------------------------------------------
+| Layout
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Grid
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Media
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Buttons
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Forms
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Lists
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Modules
+|------------------------------------------------------------
+*/

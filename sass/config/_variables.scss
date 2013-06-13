@@ -1,0 +1,24 @@
+/*
+|------------------------------------------------------------
+| Variables
+|------------------------------------------------------------
+*/
+
+// Vertical rhythm
+$base-font-size: 14px;
+$base-line-height: 21px;
+@include establish-baseline;
+
+// Sprites
+$icons: sprite-map("icons/*.png", $spacing: 5px);
+
+// Colors
+$main-color: #049cdb;
+$gray-color: #999;
+$comp-color: complement($main-color);
+
+// Gradients
+%blue-gradient {
+	background: #1b4391;
+	@include background(linear-gradient(top, #1cb2e8, #1b4391));
+}

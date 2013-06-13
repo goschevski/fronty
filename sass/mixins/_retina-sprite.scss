@@ -1,0 +1,32 @@
+/*
+|------------------------------------------------------------
+| Retina sprite mixin
+|------------------------------------------------------------
+*/
+
+%sprite {
+	background-image: sprite-url($icons);
+	background-repeat: no-repeat;
+
+	$sprite-width: image-width(sprite-path($icons)) / 2;
+	$sprite-height: image-height(sprite-path($icons)) / 2;
+	@include background-size($sprite-width, $sprite-height);
+}
+
+@mixin retina-sprite ( $icon ) {
+	$icon-name: "icons/" + $icon + '.png';
+	$position: sprite-position($icons, $icon);
+
+	// Icon dimensions
+	$icon-width: round(image-width($icon-name) / 2) + 2;
+	$icon-height: round(image-height($icon-name) / 2) + 2;
+
+	// Background positions
+	$position-x: round(nth($position, 1)/2);
+	$position-y: round(nth($position, 2)/2) + 1px;
+
+	background-position: $position-x $position-y;
+	width: $icon-width;
+	height: $icon-height;
+	@extend %sprite;
+}

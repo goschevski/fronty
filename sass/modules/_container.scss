@@ -1,0 +1,19 @@
+/*
+|------------------------------------------------------------
+| Container
+|------------------------------------------------------------
+*/
+
+.container {
+	@extend %clearfix;
+	max-width: 960px;
+	margin: 0.5em auto;
+
+	@include breakpoint(phone) {
+		width: 95%;
+	}
+
+	@include breakpoint(tablet) {
+		width: 95%;
+	}
+}
