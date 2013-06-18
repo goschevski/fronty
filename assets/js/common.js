@@ -8,6 +8,7 @@
 		waitSeconds: 15,
 
 		paths: {
+			'text': 'vendor/text',
 			'underscore': 'vendor/underscore',
 			'backbone': 'vendor/backbone',
 			'jquery': 'vendor/jquery'
