@@ -8,38 +8,27 @@ $gap: 2.5%;
 
 %col {
 	@include inline-block;
-	vertical-align: top;
-	margin: 0 $gap / 2;
 	@include rem(1);
+	margin: 0 $gap / 2;
 }
 
 %row {
-	text-align: justify;
 	font-size: 0;
-
-	&:after {
-		display: inline-block;
-		width: 100%;
-		height: 0;
-	}
 }
 
-@mixin col ($col, $sum) {
+@mixin col ($col, $sum, $align: top) {
 	@extend %col;
 
 	$width: ($col / $sum) * 100% - $gap;
 
 	width: $width;
+	vertical-align: $align;
 
 	@include breakpoint(phone) {
 		width: 100% - $gap;
 	}
 
-	&.fluid {
-		@include breakpoint(phone) {
-			width: $width;
-		}
-	}
+	&.fluid { width: $width; }
 }
 
 .row { @extend %row; }
