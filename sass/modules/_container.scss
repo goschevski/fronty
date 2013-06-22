@@ -6,7 +6,7 @@
 
 .container {
 	@extend %clearfix;
-	max-width: 960px;
+	max-width: $container-width;
 	margin: 0.5em auto;
 
 	@include breakpoint(phone) {

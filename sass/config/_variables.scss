@@ -9,6 +9,9 @@ $base-font-size: 14px;
 $base-line-height: 21px;
 @include establish-baseline;
 
+// Dimensions
+$container-width: 960px;
+
 // Sprites
 $icons: sprite-map("icons/*.png", $spacing: 5px);
 
