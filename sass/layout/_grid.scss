@@ -10,6 +10,7 @@ $gap: 2.5%;
 	@include inline-block;
 	vertical-align: top;
 	margin: 0 $gap / 2;
+	@include rem(1);
 }
 
 %row {
@@ -25,10 +26,10 @@ $gap: 2.5%;
 
 @mixin col ($col, $sum) {
 	@extend %col;
+
 	$width: ($col / $sum) * 100% - $gap;
 
 	width: $width;
-	@include rem(1);
 
 	@include breakpoint(phone) {
 		width: 100% - $gap;
