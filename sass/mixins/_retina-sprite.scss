@@ -10,7 +10,7 @@
 
 	$sprite-width: image-width(sprite-path($icons)) / 2;
 	$sprite-height: image-height(sprite-path($icons)) / 2;
-	@include background-size($sprite-width, $sprite-height);
+	@include background-size($sprite-width $sprite-height);
 }
 
 @mixin retina-sprite ( $icon ) {
