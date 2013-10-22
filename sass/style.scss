@@ -3,18 +3,24 @@
 | Libs
 |------------------------------------------------------------
 */
-
-@import "config/config";
 @import "compass";
 @import "normalize";
-@import "config/variables";
+
+/*
+|------------------------------------------------------------
+| Config
+|------------------------------------------------------------
+*/
+@import "config/vertical-rhythm";
+@import "config/sprites";
+@import "config/dimensions";
+@import "config/colors";
 
 /*
 |------------------------------------------------------------
 | Mixins
 |------------------------------------------------------------
 */
-
 @import "mixins/retina-sprite";
 @import "mixins/breakpoint";
 @import "mixins/icon";
@@ -26,7 +32,6 @@
 | Base
 |------------------------------------------------------------
 */
-
 @import "base/base";
 @import "base/typography";
 
@@ -35,7 +40,6 @@
 | Helpers
 |------------------------------------------------------------
 */
-
 @import "helpers/functions";
 @import "helpers/helpers";
 
@@ -44,7 +48,6 @@
 | Layout
 |------------------------------------------------------------
 */
-
 @import "layout/grid";
 @import "layout/media";
 @import "layout/buttons";
@@ -57,4 +60,5 @@
 |------------------------------------------------------------
 */
 
-@import "modules/container";
+/* Container */
+@import "modules/container/container";

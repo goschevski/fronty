@@ -3,13 +3,8 @@
 | Libs
 |------------------------------------------------------------
 */
-/*
-|------------------------------------------------------------
-| Settings
-|------------------------------------------------------------
-*/
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
-/* normalize.css v2.1.0 | HTML5 Display Definitions | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | HTML5 Display Definitions | MIT License | git.io/normalize */
 article,
 aside,
 details,
@@ -27,7 +22,9 @@ summary {
 audio,
 canvas,
 video {
-  display: inline-block; }
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
 
 audio:not([controls]) {
   display: none;
@@ -36,16 +33,24 @@ audio:not([controls]) {
 [hidden] {
   display: none; }
 
-/* normalize.css v2.1.0 | Base | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | Base | MIT License | git.io/normalize */
 html {
+  font-size: 100%;
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif; }
+
 body {
   margin: 0; }
 
-/* normalize.css v2.1.0 | Links | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | Links | MIT License | git.io/normalize */
 a:focus {
   outline: thin dotted; }
 
@@ -53,10 +58,30 @@ a:active,
 a:hover {
   outline: 0; }
 
-/* normalize.css v2.1.0 | Typography | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | Typography | MIT License | git.io/normalize */
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0; }
+
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0; }
+
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0; }
+
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0; }
+
+h6 {
+  font-size: 0.67em;
+  margin: 2.33em 0; }
 
 abbr[title] {
   border-bottom: 1px dotted; }
@@ -64,6 +89,9 @@ abbr[title] {
 b,
 strong {
   font-weight: bold; }
+
+blockquote {
+  margin: 1em 40px; }
 
 dfn {
   font-style: italic; }
@@ -77,11 +105,16 @@ mark {
   background: #ff0;
   color: #000; }
 
+p,
+pre {
+  margin: 1em 0; }
+
 code,
 kbd,
 pre,
 samp {
   font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
   font-size: 1em; }
 
 pre {
@@ -91,6 +124,14 @@ pre {
 
 q {
   quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+q {
+  quotes: none; }
+
+q:before,
+q:after {
+  content: '';
+  content: none; }
 
 small {
   font-size: 80%; }
@@ -108,18 +149,41 @@ sup {
 sub {
   bottom: -0.25em; }
 
-/* normalize.css v2.1.0 | Embedded Content | MIT License | git.io/normalize */
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0; }
+
+dd {
+  margin: 0 0 0 40px; }
+
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px; }
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none; }
+
+/* normalize.css v1.1.0 | Embedded Content | MIT License | git.io/normalize */
 img {
-  border: 0; }
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
 
 svg:not(:root) {
   overflow: hidden; }
 
-/* normalize.css v2.1.0 | Figures | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | Figures | MIT License | git.io/normalize */
 figure {
   margin: 0; }
 
-/* normalize.css v2.1.0 | Forms | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | Forms | MIT License | git.io/normalize */
+form {
+  margin: 0; }
+
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -128,7 +192,8 @@ fieldset {
 legend {
   border: 0;
   padding: 0;
-  white-space: normal; }
+  white-space: normal;
+  *margin-left: -7px; }
 
 button,
 input,
@@ -136,7 +201,9 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
-  margin: 0; }
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle; }
 
 button,
 input {
@@ -151,7 +218,8 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
-  cursor: pointer; }
+  cursor: pointer;
+  *overflow: visible; }
 
 button[disabled],
 html input[disabled] {
@@ -160,7 +228,9 @@ html input[disabled] {
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
-  padding: 0; }
+  padding: 0;
+  *height: 13px;
+  *width: 13px; }
 
 input[type="search"] {
   -webkit-appearance: textfield;
@@ -181,20 +251,40 @@ textarea {
   overflow: auto;
   vertical-align: top; }
 
-/* normalize.css v2.1.0 | Tables | MIT License | git.io/normalize */
+/* normalize.css v1.1.0 | Tables | MIT License | git.io/normalize */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
 /*
 |------------------------------------------------------------
-| Variables
+| Config
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Vertical rhythm
 |------------------------------------------------------------
 */
 html {
   font-size: 87.5%;
   line-height: 1.5em; }
 
+/*
+|------------------------------------------------------------
+| Sprites
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Dimensions
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
+| Colors
+|------------------------------------------------------------
+*/
 /*
 |------------------------------------------------------------
 | Mixins
@@ -255,6 +345,7 @@ html {
   -webkit-transition: text-indent 0.5s 0.5s;
   -webkit-transition-delay: ease;
   -moz-transition: text-indent 0.5s 0.5s ease;
+  -o-transition: text-indent 0.5s 0.5s ease;
   transition: text-indent 0.5s 0.5s ease;
   text-indent: -100%;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
@@ -382,6 +473,7 @@ a {
 | Modules
 |------------------------------------------------------------
 */
+/* Container */
 /*
 |------------------------------------------------------------
 | Container
