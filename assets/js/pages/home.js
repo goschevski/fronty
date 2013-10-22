@@ -6,7 +6,15 @@
 
 define(['backbone'], function (BB) {
 
-	var App = BB.View.extend({});
+	var App = BB.View.extend({
+        initialize: function () {
+            this.render();
+        },
 
-	return App;
+        render: function () {
+            console.log('App initialized!');
+        }
+    });
+
+	return new App();
 });

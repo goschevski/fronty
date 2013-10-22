@@ -37,3 +37,8 @@
 	};
 
 })(this);
+
+require(['underscore', 'jquery', 'backbone'], function (_, $, BB) {
+	var pageName = $('script[data-main][data-page]').attr('data-page');
+	return pageName && require([pageName]);
+});

@@ -5,13 +5,12 @@
 	dir: '../../www-release',
 	modules: [
 		{
-			name: 'common',
-			include: ['vendor/backbone']
+			name: 'common'
 		},
 
 		{
 			name: 'pages/home',
-			exclude: ['backbone']
+			exclude: ['underscore', 'jquery', 'backbone']
 		}
 	]
 })
