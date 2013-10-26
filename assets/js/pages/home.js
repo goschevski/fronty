@@ -6,7 +6,7 @@
 
 define(['backbone'], function (BB) {
 
-	var App = BB.View.extend({
+    var App = BB.View.extend({
         initialize: function () {
             this.render();
         },
@@ -16,5 +16,5 @@ define(['backbone'], function (BB) {
         }
     });
 
-	return new App();
+    return new App();
 });

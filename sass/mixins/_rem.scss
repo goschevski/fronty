@@ -5,7 +5,7 @@
 */
 
 @mixin rem ( $size ) {
-	// fallback in pixels
-	font-size: round(( $size * $base-font-size ));
-	font-size: $size + rem;
+    // fallback in pixels
+    font-size: round(( $size * $base-font-size ));
+    font-size: $size + rem;
 }

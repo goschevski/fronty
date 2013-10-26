@@ -7,28 +7,28 @@
 $gap: 2.5%;
 
 %col {
-	@include inline-block;
-	@include rem(1);
-	margin: 0 $gap / 2;
+    @include inline-block;
+    @include rem(1);
+    margin: 0 $gap / 2;
 }
 
 %row {
-	font-size: 0;
+    font-size: 0;
 }
 
 @mixin col ($col, $sum, $align: top) {
-	@extend %col;
+    @extend %col;
 
-	$width: ($col / $sum) * 100% - $gap;
+    $width: ($col / $sum) * 100% - $gap;
 
-	width: $width;
-	vertical-align: $align;
+    width: $width;
+    vertical-align: $align;
 
-	@include breakpoint(phone) {
-		width: 100% - $gap;
-	}
+    @include breakpoint(phone) {
+        width: 100% - $gap;
+    }
 
-	&.fluid { width: $width; }
+    &.fluid { width: $width; }
 }
 
 .row { @extend %row; }

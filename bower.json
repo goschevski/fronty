@@ -1,12 +1,12 @@
 {
-	"name": "boilerplate",
-	"version": "1.0.0",
-	"dependencies": {
-		"jquery": "latest",
-		"requirejs": "latest",
-		"requirejs-text": "latest",
-		"underscore-amd": "latest",
-		"backbone-amd": "latest",
-		"modernizr": "latest"
-	}
+    "name": "boilerplate",
+    "version": "1.0.0",
+    "dependencies": {
+        "jquery": "latest",
+        "requirejs": "latest",
+        "requirejs-text": "latest",
+        "underscore-amd": "latest",
+        "backbone-amd": "latest",
+        "modernizr": "latest"
+    }
 }

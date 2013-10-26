@@ -5,15 +5,15 @@
 */
 
 .container {
-	@extend %clearfix;
-	max-width: $container-width;
-	margin: 0.5em auto;
+    @extend %clearfix;
+    max-width: $container-width;
+    margin: 0.5em auto;
 
-	@include breakpoint(phone) {
-		width: 95%;
-	}
+    @include breakpoint(phone) {
+        width: 95%;
+    }
 
-	@include breakpoint(tablet) {
-		width: 95%;
-	}
+    @include breakpoint(tablet) {
+        width: 95%;
+    }
 }
