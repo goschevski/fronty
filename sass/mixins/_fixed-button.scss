@@ -1,0 +1,11 @@
+/*
+|------------------------------------------------------------
+| Fixed button mixin
+|------------------------------------------------------------
+*/
+
+@mixin fixed-button ( $width, $height ) {
+    width: $width;
+    height: $height;
+    line-height: $height;
+}
