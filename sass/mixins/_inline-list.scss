@@ -6,10 +6,13 @@
 
 @mixin inline-list ($spacing, $side: left) {
     @extend %clearfix;
+    @extend %reset-list;
 
     li {
         float: $side;
-        margin-#{$side}: $spacing;
+        margin-#{opposite-position($side)}: $spacing;
+
+        &:last-child { margin: 0; }
     }
 
     a {

@@ -7,5 +7,7 @@
 @mixin fixed-button ( $width, $height ) {
     width: $width;
     height: $height;
+    display: inline-block;
+    text-align: center;
     line-height: $height;
 }

@@ -1,0 +1,27 @@
+/*
+|------------------------------------------------------------
+| List divided
+|------------------------------------------------------------
+*/
+
+@mixin list-divided ($spacing, $divider: "|") {
+    @extend %reset-list;
+    font-size: 0;
+
+    li {
+        @include rem($base-font-size);
+        display: inline-block;
+        vertical-align: center;
+
+        &:after {
+            content: $divider;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 $spacing;
+        }
+
+        &:last-child:after {
+            display: none;
+        }
+    }
+}

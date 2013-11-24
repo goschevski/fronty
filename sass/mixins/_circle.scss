@@ -7,5 +7,6 @@
 @mixin circle ( $size ) {
     width: $size;
     height: $size;
+    display: inline-block;
     @include border-radius(100%);
 }
