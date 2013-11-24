@@ -1,0 +1,18 @@
+/*
+|------------------------------------------------------------
+| Inline list
+|------------------------------------------------------------
+*/
+
+@mixin inline-list ($spacing, $side: left) {
+    @extend %clearfix;
+
+    li {
+        float: $side;
+        margin-#{$side}: $spacing;
+    }
+
+    a {
+        display: block;
+    }
+}

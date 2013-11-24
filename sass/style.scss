@@ -8,10 +8,17 @@
 
 /*
 |------------------------------------------------------------
+| Helpers
+|------------------------------------------------------------
+*/
+@import "helpers/functions";
+@import "helpers/placeholder-selectors";
+
+/*
+|------------------------------------------------------------
 | Config
 |------------------------------------------------------------
 */
-@import "config/functions";
 @import "config/vertical-rhythm";
 @import "config/sprites";
 @import "config/dimensions";
@@ -28,6 +35,7 @@
 @import "mixins/rem";
 @import "mixins/circle";
 @import "mixins/fixed-button";
+@import "mixins/inline-list";
 @import "mixins/input-placeholder";
 
 /*
@@ -37,13 +45,6 @@
 */
 @import "base/base";
 @import "base/typography";
-
-/*
-|------------------------------------------------------------
-| Helpers
-|------------------------------------------------------------
-*/
-@import "helpers/helpers";
 
 /*
 |------------------------------------------------------------
@@ -61,6 +62,9 @@
 | Modules
 |------------------------------------------------------------
 */
+
+/* Helpers */
+@import "modules/helpers/helpers";
 
 /* Container */
 @import "modules/container/container";

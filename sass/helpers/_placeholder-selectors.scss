@@ -1,0 +1,22 @@
+/*
+|------------------------------------------------------------
+| Placeholder selectors
+|------------------------------------------------------------
+*/
+
+%clearfix {
+    *zoom:1;
+
+    &:before, &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+%hide-text {
+    @include hide-text;
+}
