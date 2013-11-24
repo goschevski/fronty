@@ -263,6 +263,11 @@ table {
 */
 /*
 |------------------------------------------------------------
+| Functions
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
 | Vertical rhythm
 |------------------------------------------------------------
 */
@@ -339,7 +344,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: black(0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 [placeholder]:focus::-webkit-input-placeholder {
   -webkit-transition: text-indent 0.5s 0.5s;
@@ -363,21 +368,16 @@ a {
 |------------------------------------------------------------
 */
 /* @include font-face(
-	"FontName",
-	font-files(
-		"FontName.woff",
-		"FontName.ttf",
-		"FontName.svg"),
-	"FontName.eot"
+    "FontName",
+    font-files(
+        "FontName.woff",
+        "FontName.ttf",
+        "FontName.svg"),
+    "FontName.eot"
 ); */
 /*
 |------------------------------------------------------------
 | Helpers
-|------------------------------------------------------------
-*/
-/*
-|------------------------------------------------------------
-| Functions
 |------------------------------------------------------------
 */
 /*

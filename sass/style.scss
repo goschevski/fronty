@@ -11,6 +11,7 @@
 | Config
 |------------------------------------------------------------
 */
+@import "config/functions";
 @import "config/vertical-rhythm";
 @import "config/sprites";
 @import "config/dimensions";
@@ -40,7 +41,6 @@
 | Helpers
 |------------------------------------------------------------
 */
-@import "helpers/functions";
 @import "helpers/helpers";
 
 /*
