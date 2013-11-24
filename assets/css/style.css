@@ -415,25 +415,6 @@ img {
 a {
   text-decoration: none; }
 
-.test {
-  width: 500px;
-  height: 500px;
-  margin: 100px auto;
-  background: blue;
-  text-align: center;
-  display: table;
-  font-size: 0; }
-  .test:before {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle; }
-  .test img {
-    font-size: 14px;
-    font-size: 1rem;
-    display: inline-block;
-    vertical-align: middle; }
-
 /*
 |------------------------------------------------------------
 | Typography

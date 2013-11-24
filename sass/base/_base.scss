@@ -11,12 +11,3 @@
 
 img { max-width: 100%; }
 a { text-decoration: none; }
-
-.test {
-    width: 500px;
-    height: 500px;
-    margin: 100px auto;
-    background: blue;
-    text-align: center;
-    @include vertical-center-content(img);
-}
