@@ -355,6 +355,11 @@ html {
 */
 /*
 |------------------------------------------------------------
+| Vertical center content mixin
+|------------------------------------------------------------
+*/
+/*
+|------------------------------------------------------------
 | Input placeholder mixin
 |------------------------------------------------------------
 */
@@ -365,7 +370,7 @@ html {
 */
 /*
 |------------------------------------------------------------
-| Base
+| Chrome frame
 |------------------------------------------------------------
 */
 .chromeframe {
@@ -378,12 +383,11 @@ html {
   color: black;
   padding: 0.2em 0; }
 
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-
+/*
+|------------------------------------------------------------
+| Input placeholder
+|------------------------------------------------------------
+*/
 [placeholder]:focus::-webkit-input-placeholder {
   -webkit-transition: text-indent 0.5s 0.5s;
   -webkit-transition-delay: ease;
@@ -394,11 +398,41 @@ html {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1; }
 
+/*
+|------------------------------------------------------------
+| Base
+|------------------------------------------------------------
+*/
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
 img {
   max-width: 100%; }
 
 a {
   text-decoration: none; }
+
+.test {
+  width: 500px;
+  height: 500px;
+  margin: 100px auto;
+  background: blue;
+  text-align: center;
+  display: table;
+  font-size: 0; }
+  .test:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; }
+  .test img {
+    font-size: 14px;
+    font-size: 1rem;
+    display: inline-block;
+    vertical-align: middle; }
 
 /*
 |------------------------------------------------------------

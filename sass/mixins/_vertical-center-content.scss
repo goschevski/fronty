@@ -1,0 +1,23 @@
+/*
+|------------------------------------------------------------
+| Vertical center content mixin
+|------------------------------------------------------------
+*/
+
+@mixin vertical-center-content ( $child ) {
+    display: table;
+    font-size: 0;
+
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    #{$child} {
+        @include rem($base-font-size);
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
