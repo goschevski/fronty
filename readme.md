@@ -78,3 +78,12 @@ To install pre-commit hooks (jshint, php -l) make sure you have jshint installed
 chmod +x hooks.sh
 ./hooks.sh
 ```
+
+## Build
+
+Build will run r.js and remove unnecessary files.
+
+```
+chmod +x build.sh
+./build.sh
+```
