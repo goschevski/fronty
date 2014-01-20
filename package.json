@@ -1,4 +1,14 @@
 {
+  "name": "Boilerplate",
+  "version": "0.0.0",
+  "description": "Boilerplate for starting new projects",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:salencebg/boilerplate.git"
+  },
+  "author": "Aleksandar Gosevski <gosevskibg@gmail.com>",
+  "license": "BSD",
   "volo": {
     "baseDir": "assets/js/vendor/",
     "dependencies": {
