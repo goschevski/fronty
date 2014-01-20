@@ -5,7 +5,6 @@
 */
 
 @mixin vertical-center-content ( $child ) {
-    display: table;
     font-size: 0;
 
     &:before {
