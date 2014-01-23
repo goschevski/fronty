@@ -36,7 +36,7 @@
 @import "mixins/circle";
 @import "mixins/fixed-button";
 @import "mixins/inline-list";
-@import "mixins/list-divided";
+@import "mixins/divided-list";
 @import "mixins/vertical-center-content";
 @import "mixins/input-placeholder";
 
@@ -45,7 +45,7 @@
 | Base
 |------------------------------------------------------------
 */
-@import "base/chrome-frame";
+@import "base/browsehappy";
 @import "base/input-placeholder";
 @import "base/base";
 @import "base/typography";
@@ -71,3 +71,9 @@
 
 /* Container */
 @import "modules/container/container";
+
+// Place your modules here
+
+
+/* IE */
+@import "modules/ie/ie8";

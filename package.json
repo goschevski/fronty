@@ -12,12 +12,13 @@
   "volo": {
     "baseDir": "assets/js/vendor/",
     "dependencies": {
-      "jquery": "github:jquery/jquery/1.10.2",
-      "underscore": "github:jashkenas/underscore/1.5.2",
-      "backbone": "github:jashkenas/backbone/1.1.0",
-      "require": "github:jrburke/requirejs/2.1.9",
-      "modernizr": "github:Modernizr/Modernizr/v2.7.1",
-      "text": "github:requirejs/text/2.0.10"
+      "jquery": "github:jquery/jquery/~1",
+      "underscore": "github:jashkenas/underscore/",
+      "backbone": "github:jashkenas/backbone/",
+      "require": "github:jrburke/requirejs/",
+      "text": "github:requirejs/text/",
+      "respond": "https://raw2.github.com/scottjehl/Respond/master/dest/respond.min.js",
+      "html5": "https://raw2.github.com/aFarkas/html5shiv/master/dist/html5shiv.js"
     }
   }
 }

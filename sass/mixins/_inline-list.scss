@@ -4,15 +4,15 @@
 |------------------------------------------------------------
 */
 
-@mixin inline-list ($spacing, $side: left) {
+@mixin inline-list ($spacing: 10px, $side: left) {
     @extend %clearfix;
     @extend %reset-list;
 
     li {
         float: $side;
-        margin-#{opposite-position($side)}: $spacing;
+        margin-#{$side}: $spacing;
 
-        &:last-child { margin: 0; }
+        &:first-child { margin: 0; }
     }
 
     a {

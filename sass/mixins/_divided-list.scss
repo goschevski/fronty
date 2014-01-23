@@ -1,10 +1,10 @@
 /*
 |------------------------------------------------------------
-| List divided
+| Divided list
 |------------------------------------------------------------
 */
 
-@mixin list-divided ($spacing, $divider: "|") {
+@mixin divided-list ($spacing: 10px, $divider: "|") {
     @extend %reset-list;
     font-size: 0;
 
@@ -13,14 +13,14 @@
         display: inline-block;
         vertical-align: center;
 
-        &:after {
+        &:before {
             content: $divider;
             display: inline-block;
             vertical-align: middle;
             margin: 0 $spacing;
         }
 
-        &:last-child:after {
+        &:first-child:before {
             display: none;
         }
     }
