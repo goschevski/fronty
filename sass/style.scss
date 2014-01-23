@@ -39,6 +39,7 @@
 @import "mixins/divided-list";
 @import "mixins/vertical-center-content";
 @import "mixins/input-placeholder";
+@import "mixins/ie";
 
 /*
 |------------------------------------------------------------
@@ -71,9 +72,3 @@
 
 /* Container */
 @import "modules/container/container";
-
-// Place your modules here
-
-
-/* IE */
-@import "modules/ie/ie8";
