@@ -17,15 +17,14 @@ $gap: 2.5%;
 }
 
 @mixin col ($col, $sum, $align: top) {
-    @extend %col;
-
     $width: ($col / $sum) * 100% - $gap;
 
-    width: $width;
-    vertical-align: $align;
+    @extend %col;
+    width: 100% - $gap;
 
-    @include breakpoint(phone) {
-        width: 100% - $gap;
+    @include breakpoint ('tablet') {
+        width: $width;
+        vertical-align: $align;
     }
 
     &.fluid { width: $width; }
