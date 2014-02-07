@@ -1,0 +1,22 @@
+/*
+|------------------------------------------------------------
+| Variables
+|------------------------------------------------------------
+*/
+
+// Sprites
+$icons: sprite-map("icons/*.png", $layout: 'smart');
+$icons2x: sprite-map("icons@2x/*.png", $spacing: 5px);
+
+// Vertical-rhythm
+$base-font-size: 14px;
+$base-line-height: 21px;
+@include establish-baseline;
+
+// Colors
+$main-color: #049cdb;
+$gray-color: #999;
+$comp-color: complement($main-color);
+
+// Dimensions
+$container-width: 960px;

@@ -1,26 +1,28 @@
 /*
 |------------------------------------------------------------
-| Grid
+| Grid mixins
 |------------------------------------------------------------
 */
 
-$gap: 2.5%;
+$gap: 10px;
 
 %col {
-    @include inline-block;
-    @include rem(1);
-    margin: 0 $gap / 2;
+    display: inline-block;
+    @include rem($base-font-size);
+    padding: 0 $gap;
 }
 
 %row {
     font-size: 0;
 }
 
-@mixin col ($col, $sum, $align: top) {
-    $width: ($col / $sum) * 100% - $gap;
+@mixin col ($col, $sum, $align: top, $first: false, $last: false ) {
+    $width: ($col / $sum) * 100%;
 
     @extend %col;
-    width: 100% - $gap;
+    width: 100%;
+    @if $first == true { padding-left: 0; }
+    @if $last == true { padding-right: 0; }
 
     @include breakpoint ('tablet') {
         width: $width;

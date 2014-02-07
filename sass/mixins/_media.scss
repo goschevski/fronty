@@ -1,0 +1,20 @@
+/*
+|------------------------------------------------------------
+| Media mixin
+|------------------------------------------------------------
+*/
+
+@mixin media ($image-width: 29%, $content-width: 69%, $image-side: left, $image-el: 'figure', $content-el: '.content') {
+    @extend %clearfix;
+
+    #{$image-el} {
+        width: $image-width;
+        float: $image-side;
+    }
+
+    #{$content-el} {
+        @extend %clearfix;
+        width: $content-width;
+        float: opposite-position($image-side);
+    }
+}
