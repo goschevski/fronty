@@ -20,19 +20,23 @@
 | Mixins
 |------------------------------------------------------------
 */
-@import "mixins/retina-sprite";
+
+// responsive
 @import "mixins/breakpoint";
-@import "mixins/icon";
 @import "mixins/rem";
-@import "mixins/circle";
-@import "mixins/fixed-button";
+// sprites
+@import "mixins/retina-sprite";
+@import "mixins/icon";
+// lists
 @import "mixins/inline-list";
 @import "mixins/divided-list";
-@import "mixins/vertical-center-content";
-@import "mixins/input-placeholder";
-@import "mixins/ie";
+// positioning
 @import "mixins/grid";
 @import "mixins/media";
+@import "mixins/vertical-center-content";
+// other
+@import "mixins/input-placeholder";
+@import "mixins/ie";
 
 /*
 |------------------------------------------------------------
@@ -41,8 +45,6 @@
 */
 
 /* Base */
-@import "modules/base/browsehappy";
-@import "modules/base/input-placeholder";
 @import "modules/base/typography";
 @import "modules/base/base";
 @import "modules/base/helpers";
