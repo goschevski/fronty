@@ -1,0 +1,5 @@
+{
+  "name": "Fronty",
+  "description": "Fronty is a boilerplate for starting new front-end projects. It has sass, and js code structure based on compass and backbone.",
+  "tags": ["boilerplate", "framework", "compass", "fronty"]
+}

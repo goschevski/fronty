@@ -1,7 +1,7 @@
 {
   "name": "fronty",
   "version": "0.0.3",
-  "description": "Boilerplate for starting new projects",
+  "description": "Fronty is a boilerplate for starting new front-end projects.",
   "main": "index.html",
   "repository": {
     "type": "git",

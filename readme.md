@@ -1,12 +1,12 @@
-#Boilerplate
+#Fronty
 
-This is my boilerplate for starting new projects.
+Fronty is a boilerplate for starting new front-end projects.
 
 ## Sass
 
 #### Installation
 
-I'm are using compass framework and compass-normalize plugin for styling. So after you install ruby install sass, compass and compass-normalize plugin.
+It's using compass framework and compass-normalize plugin for styling. So after you install ruby install sass, compass and compass-normalize plugin.
 
 ```
 $ sudo gem install sass --pre
@@ -25,7 +25,7 @@ After you installed all dependencies, cd into project directory and type `compas
 - _variables.scss
 - _funcitions.scss
 - _placeholder-selectors.scss
-	
+
 
 **Lib**
 
@@ -54,7 +54,7 @@ After you installed all dependencies, cd into project directory and type `compas
 	- _helpers.scss
 - /container
 	- _container.scss
-	
+
 ###### style.css
 
 
