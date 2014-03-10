@@ -266,10 +266,6 @@ table {
 | Variables
 |------------------------------------------------------------
 */
-html {
-  font-size: 87.5%;
-  line-height: 1.5em; }
-
 /*
 |------------------------------------------------------------
 | Functions
@@ -405,6 +401,10 @@ html {
   text-indent: -100%;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1; }
+
+body {
+  font-size: 14px;
+  line-height: 1.5; }
 
 img {
   max-width: 100%; }

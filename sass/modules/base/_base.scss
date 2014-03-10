@@ -26,6 +26,11 @@
     @include opacity(1);
 }
 
+body {
+    font-size: $base-font-size;
+    line-height: $line-height;
+}
+
 
 img { max-width: 100%; }
 a { text-decoration: none; }
