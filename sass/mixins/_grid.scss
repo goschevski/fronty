@@ -4,32 +4,22 @@
 |------------------------------------------------------------
 */
 
-$gap: 10px;
+%row { font-size: 0; }
+@mixin row () { font-size: 0; }
 
-%col {
-    display: inline-block;
-    @include rem($base-font-size);
-    padding: 0 $gap;
-}
-
-%row {
-    font-size: 0;
-}
-
-@mixin col ($col, $sum, $align: top, $first: false, $last: false ) {
-    $width: ($col / $sum) * 100%;
-
-    @extend %col;
+@mixin col ($col, $sum, $gap: 1em, $align: top, $first: false, $last: false ) {
     width: 100%;
-    @if $first == true { padding-left: 0; }
-    @if $last == true { padding-right: 0; }
+    display: inline-block;
+    padding-left: if($first, 0, $gap);
+    padding-right: if($last, 0, $gap);
+    @include rem($base-font-size);
 
     @include breakpoint ('tablet') {
-        width: $width;
+        width: percentage($col / $sum);
         vertical-align: $align;
     }
 
-    &.fluid { width: $width; }
+    &.fluid { width: percentage($col / $sum); }
 }
 
 .row { @extend %row; }
