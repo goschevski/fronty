@@ -18,46 +18,6 @@ $ sudo gem install compass-normalize
 
 After you installed all dependencies, cd into project directory and type `compass watch` to watch project files.
 
-#### Code structure
-
-**Core**
-
-- _variables.scss
-- _funcitions.scss
-- _placeholder-selectors.scss
-
-
-**Lib**
-
-- *Folder for css libraries*
-
-**Mixins**
-
-- _breakpoint.scss
-- _rem.scss
-- _retina-sprite.scss
-- _icon.scss
-- _inline-list.scss
-- _divided-list.scss
-- _grid.scss
-- _media.scss
-- _vertical-center-content.scss
-- _input-placeholder.scss
-- _ie.scss
-
-
-**Modules**
-
-- /base
-	- _typography.scss
-	- _base.scss
-	- _helpers.scss
-- /container
-	- _container.scss
-
-###### style.css
-
-
 ## Javascript
 
 #### Installation
