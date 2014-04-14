@@ -4,17 +4,19 @@
 |------------------------------------------------------------
 */
 
-define(['backbone'], function (BB) {
+var _ = require('underscore'),
+    $ = require('jquery'),
+    Backbone = require('backbone');
+    Backbone.$ = $;
 
-    var App = BB.View.extend({
-        initialize: function () {
-            this.render();
-        },
+var App = Backbone.View.extend({
+    initialize: function () {
+        this.render();
+    },
 
-        render: function () {
-            console.log('App initialized!');
-        }
-    });
-
-    return new App();
+    render: function () {
+        console.log('App initialized!');
+    }
 });
+
+var app = new App();

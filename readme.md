@@ -22,7 +22,9 @@ After you installed all dependencies, cd into project directory and type `compas
 
 #### Installation
 
-Install volo (`npm install -g volo`) and run `volo add` to install vendor libs.
+1. Install volo (`npm install -g volo`) and run `volo add` to install libs from github.
+2. Run `npm i` to install dev and regular dependencies.
+3. See build section.
 
 #### Code structure
 
@@ -41,9 +43,5 @@ chmod +x hooks.sh
 
 ## Build
 
-Build will run r.js and remove unnecessary files.
-
-```
-chmod +x build.sh
-./build.sh
-```
+Install gulp globbaly `npm i -g gulp`.
+Run `gulp watch`.
