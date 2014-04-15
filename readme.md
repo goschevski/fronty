@@ -28,7 +28,7 @@ After you installed all dependencies, cd into project directory and type `compas
 
 #### Code structure
 
-Javascript folder is inside assets and code structure for js files is pretty strate forward, so i won't explain it like i did for sass.
+Javascript folder is inside assets and code structure for js files is pretty strate forward.
 
 ## Hooks
 
