@@ -1,8 +1,6 @@
 var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     browserify = require('gulp-browserify'),
-    streamify = require('gulp-streamify'),
-    source = require('vinyl-source-stream'),
     uglify = require('gulp-uglify');
 
 
