@@ -1,0 +1,36 @@
+/*
+|------------------------------------------------------------
+| Headings
+|------------------------------------------------------------
+*/
+
+.hero .headings {
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 0 1px 4px black(0.28);
+
+    #{headings(2, 3)} {
+        font-weight: 400;
+    }
+
+    h2 {
+        @include rem(24px);
+        line-height: 1.1;
+        margin: 0;
+
+        @include breakpoint('tablet') {
+            margin-bottom: 15px;
+            @include rem(48px);
+        }
+    }
+
+    h3 {
+        @include rem(14px);
+        margin: 5px;
+
+        @include breakpoint('tablet') {
+            @include rem(18px);
+        }
+    }
+}

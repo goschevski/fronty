@@ -27,8 +27,10 @@
 }
 
 body {
+    font-family: $main-font;
     font-size: $base-font-size;
     line-height: $line-height;
+    color: #444;
 }
 
 img { max-width: 100%; }

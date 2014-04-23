@@ -1,0 +1,42 @@
+/*
+|------------------------------------------------------------
+| Header
+|------------------------------------------------------------
+*/
+
+.hero header {
+    @extend %clearfix;
+
+    .logo {
+        margin: 0;
+        float: left;
+
+        a {
+            @extend %hide-text;
+            display: block;
+            @include retina-sprite('logo');
+        }
+    }
+
+    nav {
+        float: right;
+        margin-top: 15px;
+
+        ul { @extend %reset-list; }
+
+        li {
+            display: inline-block;
+            margin-right: 35px;
+        }
+
+        a {
+            display: inline-block;
+            color: white;
+            border-bottom: 1px dotted white(0.4);
+
+            &:hover {
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+}

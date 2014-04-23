@@ -1,0 +1,13 @@
+/*
+|------------------------------------------------------------
+| Hero
+|------------------------------------------------------------
+*/
+
+.hero {
+    overflow: auto;
+    padding: 50px 0 150px;
+    background-image: image-url('hero.jpg');
+    background-position: center top;
+    @include background-size(cover);
+}
