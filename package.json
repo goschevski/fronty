@@ -8,7 +8,7 @@
     "url": "git@github.com:salencebg/fronty.git"
   },
   "scripts": {
-    "test": "mocha -R spec assets/js/tests/*.js"
+    "test": "mocha -R spec assets/js/tests/**/*.js"
   },
   "author": "Aleksandar Goševski <gosevskibg@gmail.com>",
   "license": "BSD",

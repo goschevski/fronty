@@ -9,14 +9,15 @@ var _ = require('underscore'),
     Backbone = require('backbone');
     Backbone.$ = $;
 
-var App = Backbone.View.extend({
+var Home = Backbone.View.extend({
+    test: 'cao',
     initialize: function () {
         this.render();
     },
 
     render: function () {
-        console.log('App initialized!');
+        console.log('Home page initialized!');
     }
 });
 
-var app = new App();
+var home = new Home();
