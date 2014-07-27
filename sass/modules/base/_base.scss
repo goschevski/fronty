@@ -5,7 +5,7 @@
 */
 
 *, *:before, *:after {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     -webkit-tap-highlight-color: black(0);
 }
 
@@ -21,9 +21,9 @@
 }
 
 [placeholder]:focus::-webkit-input-placeholder {
-    @include transition(text-indent 0.5s 0.5s ease);
+    transition: text-indent 0.5s 0.5s ease;
     text-indent: -100%;
-    @include opacity(1);
+    opacity: 1;
 }
 
 body {

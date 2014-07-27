@@ -15,7 +15,7 @@
         background-repeat: no-repeat;
         $sprite-width: image-width(sprite-path($icons2x)) / 2;
         $sprite-height: image-height(sprite-path($icons2x)) / 2;
-        @include background-size($sprite-width $sprite-height);
+        background-size: $sprite-width $sprite-height;
     }
 }
 
