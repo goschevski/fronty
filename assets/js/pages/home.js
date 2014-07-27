@@ -10,7 +10,6 @@ var _ = require('underscore'),
     Backbone.$ = $;
 
 var Home = Backbone.View.extend({
-    test: 'cao',
     initialize: function () {
         this.render();
     },

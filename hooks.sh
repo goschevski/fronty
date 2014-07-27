@@ -74,43 +74,9 @@ fi
 
 exit \$((\${EXIT_CODE}))"
 
-pre_commit_php="#!/bin/bash
-# Author: Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>
-# Author: Vytautas Povilaitis <php-checker@vytux.lt>
-
-ROOT_DIR=\"\$(pwd)/\"
-LIST=\$(git diff-index --cached --name-only --diff-filter=ACMR HEAD)
-ERRORS_BUFFER=\"\"
-for file in \$LIST
-do
-    EXTENSION=\$(echo \"\$file\" | grep \".php\$\")
-    if [ \"\$EXTENSION\" != \"\" ]; then
-        ERRORS=\$(php -l \$ROOT_DIR\$file 2>&1 | grep \"Parse error\")
-        if [ \"\$ERRORS\" != \"\" ]; then
-            if [ \"\$ERRORS_BUFFER\" != \"\" ]; then
-                ERRORS_BUFFER=\"\$ERRORS_BUFFER\n\$ERRORS\"
-            else
-                ERRORS_BUFFER=\"\$ERRORS\"
-            fi
-            echo \"Syntax errors found in file: \$file \"
-        fi
-    fi
-done
-if [ \"\$ERRORS_BUFFER\" != \"\" ]; then
-    echo
-    echo \"These errors were found in try-to-commit files: \"
-    echo -e \$ERRORS_BUFFER
-    echo
-    echo \"Can't commit, fix errors first.\"
-    exit 1
-else
-    echo \"Commited successfully.\"
-fi"
-
 pre_commit='#!/usr/bin/env bash
 
-.git/hooks/pre-commit-javascript
-.git/hooks/pre-commit-php'
+.git/hooks/pre-commit-javascript'
 
 echo "installing .jshintrc"
 
@@ -125,7 +91,7 @@ fi
 
 echo "base path is $project_path"
 
-for f in 'pre-commit' 'pre-commit-javascript' 'pre-commit-php'; do echo "installing $f"
+for f in 'pre-commit' 'pre-commit-javascript'; do echo "installing $f"
     `touch $project_path/.git/hooks/$f`;
     `chmod a+x $project_path/.git/hooks/$f`;
     tpl_name=$(echo $f | sed 's/-/_/g')
