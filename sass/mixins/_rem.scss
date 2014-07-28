@@ -4,6 +4,13 @@
 |------------------------------------------------------------
 */
 
+/**
+ * Calculate font-size in rem.
+ *
+ * @param {Number} $size - Size in pixels
+ * @requires {variable} $base-font-size
+ * @return {Number} Size in rems.
+ */
 @mixin rem ( $size ) {
     font-size: $size;
     font-size: strip-units( $size / $base-font-size ) + rem;

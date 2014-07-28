@@ -4,6 +4,11 @@
 |------------------------------------------------------------
 */
 
+/**
+ * Technique for verticaly centering elements
+ *
+ * @param {String} $child - Child selector which you want to verticaly center.
+ */
 @mixin vertical-center-content ( $child ) {
     font-size: 0;
 

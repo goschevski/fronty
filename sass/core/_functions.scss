@@ -4,22 +4,44 @@
 |------------------------------------------------------------
 */
 
-@function calc-ems ($target, $container) {
-    @return ($target / $container) * 1em;
-}
 
+/**
+ * Calculate percent of selector in regards to container.
+ *
+ * @param {px} $target - Width of child (in pixels) for which we calculate width in percents.
+ * @param {px} $container - Width of container
+ * @return {Percent %} Percentual value of $target in regards to $container
+ */
 @function percent ($target, $container) {
     @return ($target / $container) * 100%;
 }
 
+/**
+ * Just shorthand function which returns black color in rgba format.
+ *
+ * @param {Number} $opacity - Must be between 0 and 1.
+ * @return {String} Return rgba format of black color with desired alpha.
+ */
 @function black ($opacity) {
     @return rgba(0, 0, 0, $opacity);
 }
 
+/**
+ * Just shorthand function which returns white color in rgba format.
+ *
+ * @param {Number} $opacity - Must be between 0 and 1.
+ * @return {String} Return rgba format of white color with desired alpha.
+ */
 @function white ($opacity) {
     @return rgba(255, 255, 255, $opacity);
 }
 
+/**
+ * This function strip unit of given number.
+ *
+ * @param {Number} $number
+ * @return {Number} Number without unit.
+ */
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
  }

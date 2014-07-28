@@ -4,6 +4,13 @@
 |------------------------------------------------------------
 */
 
+/**
+ * This mixin add icon in pseudo element
+ *
+ * @param {String} $icon - Name of the icon
+ * @param {String} $side - Side of the icon. Left side will use before and right will use after pseudo-element.
+ * @requires {mixin} retina-sprite
+ */
 @mixin icon ( $icon, $side: left ) {
 
     $pseudo-element: if($side == left, 'before', 'after');

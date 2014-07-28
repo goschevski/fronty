@@ -5,8 +5,18 @@
 */
 
 %row { font-size: 0; }
-@mixin row () { font-size: 0; }
 
+/**
+ * Mixin which creates column with given gap on the sides and align since it's inline-block.
+ * Column has 100% width on mobile.
+ * You can add 'fluid' class to perserve width on the mobile.
+ *
+ * @param {Number} $col - Number of columns
+ * @param {Number} $sum - Sum of colums
+ * @param {Number} $gap - Gap on the left and the right side
+ * @param {Boolean} $first - If you set this to true, you will not have gap on the left side.
+ * @param {Boolean} $last - If you set this to true, you will not have gap on the right side.
+ */
 @mixin col ($col, $sum, $gap: 1em, $align: top, $first: false, $last: false ) {
     width: 100%;
     display: inline-block;
@@ -21,5 +31,3 @@
 
     &.fluid { width: percentage($col / $sum); }
 }
-
-.row { @extend %row; }

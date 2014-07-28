@@ -19,6 +19,13 @@
     }
 }
 
+/**
+ * Add width, height and background of sprite image.
+ * This is optimized for retina.
+ *
+ * @requires _variables.scss
+ * @param {String} $icon - Name of the icon
+ */
 @mixin retina-sprite ( $icon ) {
     $icon-name: "icons/" + $icon + '.png';
     $position: sprite-position($icons, $icon);
