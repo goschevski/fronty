@@ -2,4 +2,6 @@
 .sass-cache
 /node_modules/
 *.css
+/assets/js/build/**/*
+icons*.png
 .jshintrc
