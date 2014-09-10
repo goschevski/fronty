@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     compass = require('gulp-compass'),
-    minifycss = require('gulp-minify-css'),
     imagemin = require('gulp-imagemin'),
     browserify = require('gulp-browserify'),
     uglify = require('gulp-uglify');
@@ -11,7 +10,6 @@ gulp.task('css', function () {
     gulp.src('sass/style.scss')
         .pipe(compass({ config_file: 'config.rb', css: 'assets/css', sass: 'sass' }))
         .pipe(autoprefixer('last 2 version', '> 1%', 'ie 8'))
-        .pipe(minifycss())
         .pipe(gulp.dest('assets/css/'));
 });
 
