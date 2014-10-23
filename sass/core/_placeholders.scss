@@ -4,12 +4,6 @@
 |------------------------------------------------------------
 */
 
-
-/**
- * This file hold placeholder selectors that are used often.
- * Clearfix for clearing floats, hide-text for image replacement technique and reset-list which we often need for navigations, etc.
- */
-
 %clearfix {
     &:after {
         content: "";
@@ -18,13 +12,12 @@
     }
 }
 
-
-%hide-text {
-    @include hide-text;
-}
+%row { font-size: 0; }
+%hide-text { @include hide-text; }
 
 %reset-list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
