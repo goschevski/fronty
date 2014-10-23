@@ -1,0 +1,172 @@
+/*
+|------------------------------------------------------------
+| Mixins
+|------------------------------------------------------------
+*/
+
+/**
+ * Mixin for handling media queries (mobile first).
+ * It has predefined values for frequently used dimensions.
+ * If you pass custom number, it creates media query and set that number for min-width (mobile first).
+ *
+ * @param {String or Number} $value - You can use predefined (tablet, desktop, retina) or custom number (breakpoint).
+ * @return {Media Query} Media query block
+ */
+@mixin breakpoint ($value) {
+    @if $value == 'tablet' {
+        @media only screen and (min-width: 768px) { @content; }
+    }
+
+    @else if $value == 'desktop' {
+        @media only screen and (min-width: 1280px) { @content }
+    }
+
+    @else if $value == 'retina' {
+        @media only screen and (-webkit-min-device-pixel-ratio: 2),
+            only screen and (min--moz-device-pixel-ratio: 2),
+            only screen and (-o-min-device-pixel-ratio: 2/1),
+            only screen and (min-device-pixel-ratio: 2),
+            only screen and (min-resolution: 192dpi),
+            only screen and (min-resolution: 2dppx) { @content }
+    }
+
+    @else {
+        @media only screen and (min-width: $value) { @content; }
+    }
+}
+
+/**
+ * Create styles for list with inline list-items and separator between them.
+ * It's useful when you're creating breadcrumbs, navigations, etc.
+ *
+ * @param {Number} $spacing - Spacing between list items
+ * @param {String} $divider - Sign used for divider between list items
+ */
+@mixin divided-list ($spacing: 10px, $divider: "|") {
+    @extend %reset-list;
+    font-size: 0;
+
+    li {
+        @include rem($base-font-size);
+        display: inline-block;
+        vertical-align: center;
+
+        &:before {
+            content: $divider;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 $spacing;
+        }
+
+        &:first-child:before {
+            display: none;
+        }
+    }
+}
+
+/**
+ * Creates column with given gap on the sides and align since it's inline-block.
+ * Column has 100% width on mobile.
+ * You can add 'fluid' class to perserve width on the mobile.
+ *
+ * @param {Number} $col - Number of columns
+ * @param {Number} $sum - Sum of colums
+ * @param {Number} $gap - Gap on the left and the right side
+ * @param {Boolean} $first - If you set this to true, you will not have gap on the left side.
+ * @param {Boolean} $last - If you set this to true, you will not have gap on the right side.
+ */
+@mixin col ($col, $sum, $gap: 1em, $align: top, $first: false, $last: false) {
+    width: 100%;
+    display: inline-block;
+    padding-left: if($first, 0, $gap);
+    padding-right: if($last, 0, $gap);
+    @include rem($base-font-size);
+
+    @include breakpoint('tablet') {
+        width: percentage($col / $sum);
+        vertical-align: $align;
+    }
+
+    &.fluid { width: percentage($col / $sum); }
+}
+
+/**
+ * Vertically center child element
+ *
+ * @param {String} $child - Child selector which you want to verticaly center.
+ */
+@mixin vertical-center-content ( $child ) {
+    font-size: 0;
+
+    &:before, &:after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    #{$child} {
+        @include rem($base-font-size);
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+/**
+ * Add width, height and background of sprite image.
+ * Icon is optimized for retina.
+ *
+ * @requires _variables.scss
+ * @param {String} $icon - Name of the icon
+ */
+%sprite {
+    background-image: sprite-url($icons);
+    background-repeat: no-repeat;
+
+    @include breakpoint('retina') {
+        background-image: sprite-url($icons2x);
+        background-repeat: no-repeat;
+        $sprite-width: image-width(sprite-path($icons2x)) / 2;
+        $sprite-height: image-height(sprite-path($icons2x)) / 2;
+        background-size: $sprite-width $sprite-height;
+    }
+}
+@mixin retina-sprite ( $icon ) {
+    $icon-name: "icons/" + $icon + '.png';
+    $position: sprite-position($icons, $icon);
+    $position-x: round(nth($position, 1));
+    $position-y: round(nth($position, 2));
+    background-position: $position-x $position-y;
+    width: image-width($icon-name);
+    height: image-height($icon-name);
+    @extend %sprite;
+
+    @include breakpoint('retina') {
+        $icon-name: "icons@2x/" + $icon + '.png';
+        $position: sprite-position($icons2x, $icon);
+        $position-x: round(nth($position, 1)/2);
+        $position-y: round(nth($position, 2)/2) + 1px;
+        background-position: $position-x $position-y;
+        width: round(image-width($icon-name) / 2) + 2;
+        height: round(image-height($icon-name) / 2) + 2;
+    }
+}
+
+/**
+ * Add icon in pseudo element
+ *
+ * @param {String} $icon - Name of the icon
+ * @param {String} $side - Side of the icon. Left side will use before and right will use after pseudo-element.
+ * @requires {mixin} retina-sprite
+ */
+@mixin icon ( $icon, $side: left ) {
+    $pseudo-element: if($side == left, 'before', 'after');
+
+    &:#{$pseudo-element} {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        margin-#{opposite-position($side)}: 0.5em;
+        @include retina-sprite($icon);
+    }
+}
