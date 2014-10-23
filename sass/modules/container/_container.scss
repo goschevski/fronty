@@ -12,7 +12,7 @@
  */
 .container {
     @extend %clearfix;
-    width: 95%;
-    max-width: map-get($dimensions, container-width);
+    width: 90%;
+    max-width: $container-width;
     margin: 0.5em auto;
 }
