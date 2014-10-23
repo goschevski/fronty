@@ -3,54 +3,23 @@
  * Used only for including other modules.
  */
 
-/*
-|------------------------------------------------------------
-| Libs
-|------------------------------------------------------------
-*/
+/* Libs */
 @import "compass";
 @import "normalize";
 
-/*
-|------------------------------------------------------------
-| Core
-|------------------------------------------------------------
-*/
+/* Core */
 @import "core/variables";
 @import "core/functions";
-@import "core/placeholder-selectors";
+@import "core/mixins";
+@import "core/placeholders";
 
-/*
-|------------------------------------------------------------
-| Mixins
-|------------------------------------------------------------
-*/
-
-// responsive
-@import "mixins/breakpoint";
-@import "mixins/rem";
-// sprites
-@import "mixins/retina-sprite";
-@import "mixins/icon";
-// lists
-@import "mixins/divided-list";
-// positioning
-@import "mixins/grid";
-@import "mixins/vertical-center-content";
-// other
-@import "mixins/input-placeholder";
-@import "mixins/ie";
-
-/*
-|------------------------------------------------------------
-| Modules
-|------------------------------------------------------------
-*/
-
-/* Base */
+/* Modules */
+// base
 @import "modules/base/typography";
 @import "modules/base/base";
-@import "modules/base/helpers";
-
-/* Container */
+// container
 @import "modules/container/container";
+
+/* Pages */
+// home
+@import "pages/home/home";
