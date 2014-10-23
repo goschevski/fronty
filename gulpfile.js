@@ -1,10 +1,13 @@
-var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
-    autoprefixer = require('gulp-autoprefixer'),
-    compass = require('gulp-compass'),
-    imagemin = require('gulp-imagemin'),
-    browserify = require('gulp-browserify'),
-    uglify = require('gulp-uglify');
+var gulp = require('gulp');
+var watch = require('gulp-watch');
+var merge = require('merge-stream');
+var plumber = require('gulp-plumber');
+var minify = require('gulp-minify-css');
+var autoprefixer = require('gulp-autoprefixer');
+var compass = require('gulp-compass');
+var imagemin = require('gulp-imagemin');
+var browserify = require('gulp-browserify');
+var uglify = require('gulp-uglify');
 
 gulp.task('css', function () {
     gulp.src('sass/style.scss')
@@ -13,31 +16,29 @@ gulp.task('css', function () {
         .pipe(autoprefixer('last 2 version', '> 1%', 'ie 8'));
 });
 
+gulp.task('js', function () {
+    gulp.src('assets/js/pages/*.js')
+        .pipe(plumber())
+        .pipe(browserify({ debug: true }))
+        .pipe(gulp.dest('assets/js/build/'));
+});
+
 gulp.task('images', function () {
     gulp.src('assets/img/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest('assets/img'));
 });
 
-gulp.task('js', function (cb) {
-    gulp.src('assets/js/pages/*.js')
-        .pipe(plumber())
-        .pipe(browserify({ debug: true }))
-        .pipe(gulp.dest('assets/js/build/'))
-        .on('end', cb);
+gulp.task('compress', function () {
+    var css = gulp.src('assets/css/*.css').pipe(minify({ keepSpecialComments: 0 })).pipe(gulp.dest('assets/css/'));
+    var js = gulp.src('assets/js/build/*.js').pipe(uglify()) .pipe(gulp.dest('assets/js/build/'));
+    return merge(css, js);
 });
 
-gulp.task('compress', ['js'], function () {
-    gulp.src('assets/js/build/*.js')
-        .pipe(plumber())
-        .pipe(uglify())
-        .pipe(gulp.dest('assets/js/build/'));
-});
-
-gulp.task('watch', ['css', 'js'], function() {
-    gulp.watch('sass/**/*.scss', ['css']);
-    gulp.watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['js']);
+gulp.task('watch', ['css', 'js'], function () {
+    watch('sass/**/*.scss', ['css']);
+    watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['js']);
 });
 
 gulp.task('default', ['css', 'js']);
-gulp.task('build', ['css', 'compress', 'images']);
+gulp.task('build', ['compress', 'images']);
