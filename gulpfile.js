@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var watch = require('gulp-watch');
 var merge = require('merge-stream');
 var plumber = require('gulp-plumber');
 var minify = require('gulp-minify-css');
@@ -36,8 +35,8 @@ gulp.task('compress', function () {
 });
 
 gulp.task('watch', ['css', 'js'], function () {
-    watch('sass/**/*.scss', ['css']);
-    watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['js']);
+    gulp.watch('sass/**/*.scss', ['css']);
+    gulp.watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['js']);
 });
 
 gulp.task('default', ['css', 'js']);
