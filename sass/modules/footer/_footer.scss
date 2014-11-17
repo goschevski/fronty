@@ -9,10 +9,14 @@ footer {
     position: relative;
     text-align: center;
     color: #555;
-    margin-top: 100px;
+    margin-top: 30px;
     padding-top: 1px;
     @include rem(14px);
     @include background-size(100% 1px);
+
+    @include breakpoint('tablet') {
+        margin-top: 100px;
+    }
 
     &:before {
         content: "";

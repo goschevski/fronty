@@ -5,9 +5,30 @@
 */
 
 .hero {
+    position: relative;
     overflow: auto;
-    padding: 50px 0 150px;
+    padding: 20px 0 60px;
     background-image: image-url('hero.jpg');
-    background-position: center top;
+    background-position: center bottom;
     @include background-size(cover);
+
+    @include breakpoint('tablet') {
+        padding: 50px 0 150px;;
+    }
+
+    &.docs {
+        padding: 20px;
+        &:after { background: black(0.8); }
+    }
+
+    &:after {
+        content: "";
+        z-index: 1;
+        background: black(0.7);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
 }
