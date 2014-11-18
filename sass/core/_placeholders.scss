@@ -4,16 +4,19 @@
 |------------------------------------------------------------
 */
 
-%clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+%clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 %row { font-size: 0; }
-%hide-text { @include hide-text; }
+
+%hide-text {
+    text-indent: -9999em;
+    overflow: hidden;
+    text-align: left;
+}
 
 %reset-list {
     margin: 0;
