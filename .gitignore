@@ -2,6 +2,7 @@
 .sass-cache
 /node_modules/
 *.css
+*.css.map
 /assets/js/build/**/*
-icons*.png
-.jshintrc
+sprite.png
+sprite.svg

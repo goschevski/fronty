@@ -5,44 +5,37 @@
 */
 
 /**
- * Sprite map for regulars screens are the icons inside icons folder and it uses smart layout of icons.
- * @type {Sprite-map}
- */
-$icons: sprite-map("icons/*.png", $layout: 'smart');
-
-/**
- * Sprite map for retina screens are the icons with the same name as icons but in the icons@2x folder and it uses default layout but
- * with 5px spacing between icons.
- * @type {Sprite-map}
- */
-$icons2x: sprite-map("icons@2x/*.png", $spacing: 5px);
-
-/**
  * Rem mixin is using this variable. Define here base font size and you can use it with or without compass for keeping vertical rhythm good.
  * @type {Number}
  */
-$base-font-size: 14px;
+$base-font-size: 14px !default;
 
 /**
  * It's base line-height which you can use anywhere.
  * @type {Number}
  */
-$line-height: 1.5;
+$line-height: 1.5 !default;
 
 /**
  * List with color variables used for theme.
  * @type {Map}
  */
-$main-color: #049cdb;
+$main-color: #049cdb !default;
 
 /**
  * List with dimension variables used for layout.
  * @type {Map}
  */
-$container-width: 960px;
+$container-width: 960px !default;
 
 /**
  * List with font based variables used for typography.
  * @type {Map}
  */
-$main-font: 'Helvetica, Arial, sans-serif';
+$main-font: Helvetica, Arial, sans-serif !default;
+
+/**
+ * Class prefix for png sprites (fallback for svg sprites)
+ * @type {String}
+ */
+$ieSprite: '.lt-ie9' !default;
