@@ -111,3 +111,29 @@
         vertical-align: middle;
     }
 }
+
+/**
+ * Return background position for svg sprite with png fallback
+ *
+ * @param {String} $icon
+ */
+@mixin sprite($icon) {
+    width: sprite-attr($icon, width) + 5;
+    height: sprite-attr($icon, height) + 5;
+    background-image: url(../img/sprite.svg);
+    background-position: sprite-attr($icon, backgroundX) sprite-attr($icon, backgroundY);
+
+    #{$ieSprite} & {
+        background-image: url(../img/sprite.png);
+    }
+}
+
+/**
+ * Return content propery of iconfont icon
+ *
+ * @param {String} $icon
+ */
+@mixin iconfont($icon) {
+    @extend %iconfont;
+    content: map-get($iconfont, $icon);
+}

@@ -13,6 +13,8 @@ var imagemin = require('gulp-imagemin');
 var browserify = require('gulp-browserify');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
+var iconfont = require('gulp-iconfont');
+var consolidate = require('gulp-consolidate');
 
 gulp.task('css', function () {
     return gulp.src('sass/style.scss')
@@ -20,6 +22,21 @@ gulp.task('css', function () {
         .pipe(sass())
         .pipe(autoprefixer('last 2 version', '> 1%'))
         .pipe(gulp.dest('assets/css/'));
+});
+
+gulp.task('iconfont', function () {
+    gulp.src(['assets/img/iconfont/*.svg'])
+        .pipe(iconfont({ fontName: 'iconfont', normalize: true }))
+        .on('codepoints', function (codepoints, options) {
+            gulp.src('sass/templates/_iconfont.scss')
+                .pipe(consolidate('lodash', {
+                    icons: codepoints,
+                    fontName: 'iconfont',
+                    fontPath: '../fonts/'
+                }))
+                .pipe(gulp.dest('sass/core/'));
+        })
+        .pipe(gulp.dest('assets/fonts/'));
 });
 
 gulp.task('svgSprite', function () {
@@ -31,7 +48,7 @@ gulp.task('svgSprite', function () {
             layout: 'horizontal',
             padding: 5,
             svg: { sprite: 'sprite.svg' },
-            templates: { css: require('fs').readFileSync('sass/core/_sprite-template.scss', 'utf-8') }
+            templates: { css: require('fs').readFileSync('sass/templates/_sprite-template.scss', 'utf-8') }
         }))
         .pipe(gulp.dest('assets/img/'));
 });

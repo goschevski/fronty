@@ -4,5 +4,6 @@
 *.css
 *.css.map
 /assets/js/build/**/*
+assets/fonts/iconfont.*
 sprite.png
 sprite.svg

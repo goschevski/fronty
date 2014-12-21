@@ -43,3 +43,14 @@
 @function strip-units($number) {
     @return $number / ($number * 0 + 1);
 }
+
+/**
+ * Return an attribute for the sprite icon
+ *
+ * @param {String} $icon - Icon name
+ * @param {String} $attr - Attribute name
+ */
+@function sprite-attr($icon, $attr) {
+    $icon: map-get($icons, $icon);
+    @return map-get($icon, $attr);
+}
