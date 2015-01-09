@@ -1,4 +1,4 @@
-### fronty
+### Fronty
 
 Presentation for fronty
 
