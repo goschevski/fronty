@@ -1,0 +1,23 @@
+/*
+|------------------------------------------------------------
+| Base
+|------------------------------------------------------------
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $main-font;
+    font-size: $base-font-size;
+    line-height: $line-height;
+    color: white;
+}
+
+a { text-decoration: none; }
+img { max-width: 100%; }

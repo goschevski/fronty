@@ -1,0 +1,25 @@
+/*
+|------------------------------------------------------------
+| Placeholder selectors
+|------------------------------------------------------------
+*/
+
+%clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+%hide-text {
+    text-indent: -9999em;
+    overflow: hidden;
+    text-align: left;
+}
+
+
+%reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+

@@ -1,0 +1,29 @@
+.buttons {
+    @extend %reset-list;
+    margin-top: 50px;
+
+    li {
+        display: inline-block;
+        margin-right: 10px;
+        &:last-child { margin-right: 0; }
+    }
+
+    a {
+        display: inline-block;
+        padding: 0.7em 1em;
+        border: 1px solid $main-color;
+        color: $main-color;
+        text-transform: uppercase;
+        border-radius: 5px;
+        transition: all 0.4s;
+
+        &:hover {
+            color: white;
+            background: $main-color;
+        }
+
+        @include breakpoint('tablet') {
+            padding: 0.7em 1.5em;
+        }
+    }
+}

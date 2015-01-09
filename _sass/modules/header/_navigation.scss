@@ -1,0 +1,31 @@
+header nav {
+    float: right;
+    margin-top: 15px;
+
+    ul { @extend %reset-list; }
+
+    li {
+        display: inline-block;
+        margin-right: 15px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @include breakpoint('tablet') {
+            margin-right: 35px;
+        }
+    }
+
+    a {
+        display: inline-block;
+        color: white;
+        text-transform: uppercase;
+        border-bottom: 1px dotted white(0.4);
+        transition: border 0.5s;
+
+        &:hover {
+            border-bottom: 1px dotted white;
+        }
+    }
+}

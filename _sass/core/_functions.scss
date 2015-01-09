@@ -1,0 +1,45 @@
+/*
+|------------------------------------------------------------
+| Functions
+|------------------------------------------------------------
+*/
+
+/**
+ * Just shorthand function which returns black color in rgba format.
+ *
+ * @param {Number} $opacity - Must be between 0 and 1.
+ * @return {String} Return rgba format of black color with desired alpha.
+ */
+@function black ($opacity) {
+    @return rgba(0, 0, 0, $opacity);
+}
+
+/**
+ * Just shorthand function which returns white color in rgba format.
+ *
+ * @param {Number} $opacity - Must be between 0 and 1.
+ * @return {String} Return rgba format of white color with desired alpha.
+ */
+@function white ($opacity) {
+    @return rgba(255, 255, 255, $opacity);
+}
+
+/**
+ * Convert px to rem using $base-font-size defined in _variables.scss
+ *
+ * @param {Number} $size
+ * @return {Number} Number in rems.
+ */
+@function rem ($size) {
+    @return strip-units($size / $base-font-size) + rem;
+}
+
+/**
+ * This function strip unit of given number.
+ *
+ * @param {Number} $number
+ * @return {Number} Number without unit.
+ */
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}

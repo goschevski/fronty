@@ -1,0 +1,27 @@
+.headings {
+    text-shadow: 0 1px 4px black(0.28);
+
+    h2, h3 {
+        font-weight: 400;
+    }
+
+    h2 {
+        font-size: rem(24px);
+        line-height: 1.1;
+        margin: 0;
+
+        @include breakpoint('tablet') {
+            margin-bottom: 15px;
+            font-size: rem(48px);
+        }
+    }
+
+    h3 {
+        font-size: rem(14px);
+        margin: 5px;
+
+        @include breakpoint('tablet') {
+            font-size: rem(18px);
+        }
+    }
+}

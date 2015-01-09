@@ -1,0 +1,16 @@
+# Site settings
+
+title: Fronty - Boilerplate for starting new front-end projects
+email: gosevskibg@domain.com
+description: Boilerplate for starting new front-end projects
+permalink: /:title/
+baseurl: ""
+url: "http://www.frontyboilerplate.com"
+markdown: kramdown
+sass:
+    style: :compressed
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - Guardfile
+    - readme.md

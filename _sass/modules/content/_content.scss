@@ -1,0 +1,29 @@
+.content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('img/hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    text-align: center;
+    @include vertical-center-content('.wrapper');
+
+    &:after {
+        content: "";
+        z-index: -1;
+        background: black(0.7);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .wrapper {
+        max-width: 940px;
+        width: 90%;
+    }
+}
