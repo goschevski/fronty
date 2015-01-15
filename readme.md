@@ -1,6 +1,8 @@
 # Fronty
 Fronty is a boilerplate for starting new front-end projects.
 
+[www.frontyboilerplate.com](http://frontyboilerplate.com)
+
 ### Why boilerplate?
 I explained my opinion on this topic in blog post "[About CSS Frameworks](http://goschevski.com/about-css-frameworks.html)".
 
