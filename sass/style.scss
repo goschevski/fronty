@@ -3,20 +3,17 @@
  * Used only for including other modules.
  */
 
-/* Core */
-@import "core/variables";
-@import "core/sprite-maps";
-@import "core/iconfont";
-@import "core/functions";
-@import "core/placeholders";
-@import "core/mixins";
+@import
+    "core/variables",
+    "core/sprite-maps",
+    "core/iconfont",
+    "core/functions",
+    "core/placeholders",
+    "core/mixins";
 
-/* Modules */
-// base
-@import "modules/base/base";
-// container
-@import "modules/container/container";
+@import
+    "modules/base/base",
+    "modules/container/container";
 
-/* Pages */
-// home
-@import "pages/home/home";
+@import
+    "pages/home/home";
