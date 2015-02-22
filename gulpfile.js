@@ -1,20 +1,20 @@
+var gulp = require('gulp');
 var jshintConfig = require('./package').jshintConfig;
 var stylish = require('jshint-stylish');
-var gulp = require('gulp');
+var jshint = require('gulp-jshint');
 var plumber = require('gulp-plumber');
+var sass = require('gulp-sass');
 var minify = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
-// var sass = require('gulp-sass');
-var sass = require('gulp-ruby-sass');
-var svgSprites = require('gulp-svg-sprites');
+var iconfont = require('gulp-iconfont');
+var consolidate = require('gulp-consolidate');
+// var svgSprites = require('gulp-svg-sprites');
 var svgo = require('gulp-svgo');
 var svg2png = require('gulp-svg2png');
 var imagemin = require('gulp-imagemin');
-var browserify = require('gulp-browserify');
-var jshint = require('gulp-jshint');
+var browserify = require('browserify');
+var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
-var iconfont = require('gulp-iconfont');
-var consolidate = require('gulp-consolidate');
 
 gulp.task('css', function () {
     return gulp.src('sass/style.scss')
@@ -61,12 +61,20 @@ gulp.task('pngSprite', ['svgSprite'], function () {
 
 gulp.task('sprite', ['pngSprite']);
 
-gulp.task('browserify', function () {
-    return gulp.src('assets/js/pages/*.js')
-        .pipe(plumber())
+gulp.task('jshint', function () {
+    return gulp.src(['assets/js/**/*.js', '!assets/js/build/*.js'])
         .pipe(jshint(jshintConfig))
-        .pipe(jshint.reporter(stylish))
-        .pipe(browserify({ debug: true }))
+        .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('browserify', ['jshint'], function () {
+    var browserified = transform(function (filename) {
+        var b = browserify(filename);
+        return b.bundle();
+    });
+
+    return gulp.src('assets/js/pages/*.js')
+        .pipe(browserified)
         .pipe(gulp.dest('assets/js/build/'));
 });
 
@@ -91,8 +99,8 @@ gulp.task('uglify', ['browserify'], function () {
 gulp.task('watch', ['css', 'browserify'], function () {
     gulp.watch('assets/img/sprites/*', ['sprite']);
     gulp.watch('sass/**/*.scss', ['css']);
-    gulp.watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['browserify']);
+    gulp.watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['jshint', 'browserify']);
 });
 
-gulp.task('default', ['css', 'browserify']);
+gulp.task('default', ['css', 'jshint', 'browserify']);
 gulp.task('build', ['minify', 'uglify', 'images']);
