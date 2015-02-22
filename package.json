@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "gulp": "~3.8.8",
-    "gulp-autoprefixer": "1.0.0",
+    "gulp-autoprefixer": "^2.1.0",
     "gulp-browserify": "~0.5.0",
     "gulp-consolidate": "^0.1.2",
     "gulp-iconfont": "^1.0.0",
