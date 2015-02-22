@@ -8,7 +8,7 @@ var minify = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
-// var svgSprites = require('gulp-svg-sprites');
+var svgspritesheet = require('gulp-svg-spritesheet');
 var svgo = require('gulp-svgo');
 var svg2png = require('gulp-svg2png');
 var imagemin = require('gulp-imagemin');
@@ -41,16 +41,15 @@ gulp.task('iconfont', function () {
 
 gulp.task('svgSprite', function () {
     return gulp.src('assets/img/sprites/*')
+        .pipe(plumber())
         .pipe(svgo())
-        .pipe(svgSprites({
-            cssFile: '../../sass/core/_sprite-maps.scss',
-            preview: false,
-            layout: 'horizontal',
+        .pipe(svgspritesheet({
             padding: 5,
-            svg: { sprite: 'sprite.svg' },
-            templates: { css: require('fs').readFileSync('sass/templates/_sprite-template.scss', 'utf-8') }
+            positioning: 'packed',
+            templateSrc: 'sass/templates/_sprite-template.scss',
+            templateDest: 'sass/core/_sprite-maps.scss'
         }))
-        .pipe(gulp.dest('assets/img/'));
+        .pipe(gulp.dest('assets/img/sprite.svg'));
 });
 
 gulp.task('pngSprite', ['svgSprite'], function () {

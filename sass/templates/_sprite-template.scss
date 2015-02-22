@@ -1,4 +1,6 @@
-{#common}$icons: (
-    sprite: (width: {swidth}px, height: {sheight}px),{/common}
-{#svg}    {name}: (width: {width}px, height: {height}px, backgroundX: {positionX}px, backgroundY: {positionY}px),
-{/svg}{#common});{/common}
+$icons: (
+    sprite: (width: {{width}}px, height: {{height}}px),
+    {{#sprites}}
+    {{fileName}}: (width: {{w}}px, height: {{h}}px, backgroundX: {{x}}px, backgroundY: {{y}}px),
+    {{/sprites}}
+);
