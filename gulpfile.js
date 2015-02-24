@@ -12,6 +12,7 @@ var svgspritesheet = require('gulp-svg-spritesheet');
 var svgo = require('gulp-svgo');
 var svg2png = require('gulp-svg2png');
 var imagemin = require('gulp-imagemin');
+var imageDimensions = require('gulp-css-image-dimensions');
 var browserify = require('browserify');
 var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
@@ -20,6 +21,7 @@ gulp.task('css', function () {
     return gulp.src('sass/style.scss')
         .pipe(plumber())
         .pipe(sass())
+        .pipe(imageDimensions('../assets/img'))
         .pipe(autoprefixer('last 2 version', '> 1%'))
         .pipe(gulp.dest('assets/css/'));
 });
