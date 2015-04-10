@@ -4,14 +4,13 @@
 }
 
 [placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 0.5s 0.5s ease;
+    transition: text-indent 0.5s ease;
     text-indent: -100%;
     opacity: 1;
 }
 
 html, body {
     font-family: $main-font;
-    font-size: $base-font-size;
     line-height: $line-height;
 }
 
