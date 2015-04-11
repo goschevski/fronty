@@ -13,6 +13,8 @@ var svgspritesheet = require('gulp-svg-spritesheet');
 var svgo = require('gulp-svgo');
 var svg2png = require('gulp-svg2png');
 var imagemin = require('gulp-imagemin');
+var jscsConfig = require('./package').jscs;
+var jscs = require('gulp-jscs');
 var browserify = require('browserify');
 var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
@@ -69,6 +71,11 @@ gulp.task('jshint', function () {
     return gulp.src(['assets/js/**/*.js', '!assets/js/build/*.js'])
         .pipe(jshint(jshintConfig))
         .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('jscs', function () {
+    return gulp.src(['assets/js/**/*.js', '!assets/js/build/*.js'])
+        .pipe(jscs(jscsConfig));
 });
 
 gulp.task('browserify', ['jshint'], function () {
