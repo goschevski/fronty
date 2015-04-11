@@ -23,6 +23,7 @@
     "gulp-jshint": "^1.9.2",
     "gulp-minify-css": "^1.0.0",
     "gulp-plumber": "^1.0.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^1.3.3",
     "gulp-svg-spritesheet": "0.0.3",
     "gulp-svg2png": "^0.3.0",

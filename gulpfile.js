@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var rename = require('gulp-rename');
 var jshintConfig = require('./package').jshintConfig;
 var stylish = require('jshint-stylish');
 var jshint = require('gulp-jshint');
@@ -31,12 +32,13 @@ gulp.task('iconfont', function () {
     gulp.src(['assets/img/iconfont/*.svg'])
         .pipe(iconfont({ fontName: 'iconfont', normalize: true }))
         .on('codepoints', function (codepoints, options) {
-            gulp.src('sass/templates/_iconfont.scss')
+            gulp.src('sass/templates/_iconfont-template.scss')
                 .pipe(consolidate('lodash', {
                     icons: codepoints,
                     fontName: 'iconfont',
                     fontPath: '../fonts/'
                 }))
+                .pipe(rename('_iconfont.scss'))
                 .pipe(gulp.dest('sass/core/'));
         })
         .pipe(gulp.dest('assets/fonts/'));
