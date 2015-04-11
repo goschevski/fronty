@@ -15,8 +15,8 @@ var svg2png = require('gulp-svg2png');
 var imagemin = require('gulp-imagemin');
 var jscsConfig = require('./package').jscs;
 var jscs = require('gulp-jscs');
+var through2 = require('through2');
 var browserify = require('browserify');
-var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
 var base64 = require('gulp-base64-inline');
 var david = require('gulp-david');
@@ -79,13 +79,16 @@ gulp.task('jscs', function () {
 });
 
 gulp.task('browserify', ['jshint'], function () {
-    var browserified = transform(function (filename) {
-        var b = browserify(filename);
-        return b.bundle();
-    });
+    var browserified = function (file, enc, next) {
+        browserify(file.path)
+            .bundle(function (err, res) {
+                file.contents = res;
+                next(null, file);
+            });
+    };
 
     return gulp.src('assets/js/pages/*.js')
-        .pipe(browserified)
+        .pipe(through2.obj(browserified))
         .pipe(gulp.dest('assets/js/build/'));
 });
 
