@@ -16,6 +16,7 @@ var browserify = require('browserify');
 var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
 var base64 = require('gulp-base64-inline');
+var david = require('gulp-david');
 
 gulp.task('css', function () {
     return gulp.src('sass/style.scss')
@@ -83,6 +84,19 @@ gulp.task('images', function () {
     return gulp.src('assets/img/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest('assets/img'));
+});
+
+gulp.task('checkDependencies', function () {
+  return gulp.src('../package.json')
+    .pipe(david({ error404: true, errorDepType: true }))
+    .pipe(david.reporter);
+});
+
+gulp.task('updateManifest', function () {
+  return gulp.src('../package.json')
+    .pipe(david({ update: true }))
+    .pipe(david.reporter)
+    .pipe(gulp.dest('../'));
 });
 
 gulp.task('minify', ['sprite', 'css'], function () {
