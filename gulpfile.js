@@ -40,7 +40,7 @@ gulp.task('iconfont', function () {
                     fontName: 'iconfont',
                     fontPath: '../fonts/iconfont/'
                 }))
-                .pipe(rename('_iconfont.scss'))
+                .pipe(rename('_iconfont-map.scss'))
                 .pipe(gulp.dest('sass/core/'));
         })
         .pipe(gulp.dest('assets/fonts/iconfont/'));
@@ -54,7 +54,7 @@ gulp.task('svgSprite', function () {
             padding: 5,
             positioning: 'packed',
             templateSrc: 'sass/templates/_sprite-template.scss',
-            templateDest: 'sass/core/_sprite-maps.scss'
+            templateDest: 'sass/core/_sprite-map.scss'
         }))
         .pipe(gulp.dest('assets/img/sprite.svg'));
 });
