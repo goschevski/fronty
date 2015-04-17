@@ -38,12 +38,12 @@ gulp.task('iconfont', function () {
                 .pipe(consolidate('lodash', {
                     icons: codepoints,
                     fontName: 'iconfont',
-                    fontPath: '../fonts/'
+                    fontPath: '../fonts/iconfont/'
                 }))
                 .pipe(rename('_iconfont.scss'))
                 .pipe(gulp.dest('sass/core/'));
         })
-        .pipe(gulp.dest('assets/fonts/'));
+        .pipe(gulp.dest('assets/fonts/iconfont/'));
 });
 
 gulp.task('svgSprite', function () {
