@@ -87,7 +87,7 @@ gulp.task('browserify', ['jshint'], function () {
             });
     };
 
-    return gulp.src('assets/js/pages/*.js')
+    return gulp.src('assets/js/bundles/*.js')
         .pipe(through2.obj(browserified))
         .pipe(gulp.dest('assets/js/build/'));
 });
