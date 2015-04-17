@@ -20,13 +20,16 @@ var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var base64 = require('gulp-base64-inline');
 var david = require('gulp-david');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('css', function () {
     return gulp.src('sass/style.scss')
         .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(base64('../assets/img'))
         .pipe(autoprefixer('last 2 version', '> 1%'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('assets/css/'));
 });
 
@@ -88,7 +91,9 @@ gulp.task('browserify', ['jshint'], function () {
     };
 
     return gulp.src('assets/js/bundles/*.js')
+        .pipe(sourcemaps.init())
         .pipe(through2.obj(browserified))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('assets/js/build/'));
 });
 
