@@ -1,17 +1,17 @@
-*, *:before, *:after {
+html, body {
     box-sizing: border-box;
-    -webkit-tap-highlight-color: black(0);
+    font-family: $main-font;
+    line-height: $line-height;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 [placeholder]:focus::-webkit-input-placeholder {
     transition: text-indent 0.5s ease;
     text-indent: -100%;
     opacity: 1;
-}
-
-html, body {
-    font-family: $main-font;
-    line-height: $line-height;
 }
 
 img { max-width: 100%; }

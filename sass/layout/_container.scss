@@ -5,7 +5,7 @@
  * @requires {variable} $dimensions
  */
 .container {
-    @extend %clearfix;
+    @include clearfix;
     width: 90%;
     max-width: $container-width;
     margin: 0.5em auto;

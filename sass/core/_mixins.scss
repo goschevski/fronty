@@ -1,61 +1,30 @@
 /**
- * Mixin for handling media queries (mobile first).
- * It has predefined values for frequently used dimensions.
- * If you pass custom number, it creates media query and set that number for min-width (mobile first).
+ * Mixin for handling media queries.
+ * Breakpoints are defined inside core/_variables.scss
+ * You can use custom breakpoints. Example: @include breakpoint ('min-width: 1500px') { ... }
  *
- * @param {String or Number} $value - You can use predefined (tablet, desktop, retina) or custom number (breakpoint).
+ * @param {String or Number} $breakpoint 
  * @return {Media Query} Media query block
  */
-@mixin breakpoint ($value) {
-    @if $value == 'tablet' {
-        @media only screen and (min-width: 768px) { @content; }
+@mixin breakpoint ($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    } @else {
+        @media (#{inspect($breakpoint)}) {
+            @content;
+        }
     }
-
-    @else if $value == 'desktop' {
-        @media only screen and (min-width: 1280px) { @content }
-    }
-
-    @else if $value == 'retina' {
-        @media only screen and (-webkit-min-device-pixel-ratio: 2),
-            only screen and (min--moz-device-pixel-ratio: 2),
-            only screen and (-o-min-device-pixel-ratio: 2/1),
-            only screen and (min-device-pixel-ratio: 2),
-            only screen and (min-resolution: 192dpi),
-            only screen and (min-resolution: 2dppx) { @content }
-    }
-
-    @else {
-        @media only screen and (min-width: $value) { @content; }
-    }
-}
+} 
 
 /**
- * Create styles for list with inline list-items and separator between them.
- * It's useful when you're creating breadcrumbs, navigations, etc.
- *
- * @param {Number} $spacing - Spacing between list items
- * @param {String} $divider - Sign used for divider between list items
+ * Use this mixin for the parent element that holds the columns of grid.
+ * Columns has display: inline-block property so to kill the default gap, we need to set font-size to 0.
+ * Font size will be reset inside col mixin.
  */
-@mixin divide-list ($spacing: 10px, $divider: "|") {
-    @extend %reset-list;
+@mixin row {
     font-size: 0;
-
-    li {
-        font-size: rem($base-font-size);
-        display: inline-block;
-        vertical-align: center;
-
-        &:before {
-            content: $divider;
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0 $spacing;
-        }
-
-        &:first-child:before {
-            display: none;
-        }
-    }
 }
 
 /**
@@ -76,7 +45,7 @@
     padding-right: if($last, 0, $gap);
     font-size: rem($base-font-size);
 
-    @include breakpoint('tablet') {
+    @include breakpoint('medium') {
         width: percentage($col / $sum);
         vertical-align: $align;
     }
@@ -130,4 +99,33 @@
 @mixin iconfont($icon) {
     @extend %iconfont;
     content: map-get($iconfont, $icon);
+}
+
+/**
+ * Clear floats using clearfix technique.
+ */
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/**
+ * Visually hide text using text-indent technique.
+ */
+@mixin hide-text {
+    text-indent: -9999em;
+    overflow: hidden;
+    text-align: left;
+}
+
+/**
+ * Remove default stylig for lists.
+ */
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
