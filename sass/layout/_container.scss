@@ -1,8 +1,5 @@
 /**
  * Container module is used very often so it's predefined as module.
- * It has clearfix and it's responsive with max-width defined in variables.
- *
- * @requires {variable} $dimensions
  */
 .container {
     @include clearfix;
