@@ -3,8 +3,7 @@
  * Breakpoints are defined inside core/_variables.scss
  * You can use custom breakpoints. Example: @include breakpoint ('min-width: 1500px') { ... }
  *
- * @param {String or Number} $breakpoint 
- * @return {Media Query} Media query block
+ * @param {String} $breakpoint
  */
 @mixin breakpoint ($breakpoint) {
     @if map-has-key($breakpoints, $breakpoint) {
@@ -16,7 +15,7 @@
             @content;
         }
     }
-} 
+}
 
 /**
  * Use this mixin for the parent element that holds the columns of grid.

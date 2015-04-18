@@ -34,8 +34,18 @@
  * @param {Number} $number
  * @return {Number} Number without unit.
  */
-@function strip-units($number) {
+@function strip-units ($number) {
     @return $number / ($number * 0 + 1);
+}
+
+/**
+ * Get a z-index value from a layer name
+ *
+ * @param {String} Layer name
+ * @return {Number} Layer z-index value
+ */
+@function z ($layer) {
+    @return map-get($z-indexes, $layer);
 }
 
 /**
@@ -44,7 +54,7 @@
  * @param {String} $icon - Icon name
  * @param {String} $attr - Attribute name
  */
-@function sprite-attr($icon, $attr) {
+@function sprite-attr ($icon, $attr) {
     $icon: map-get($icons, $icon);
     @return map-get($icon, $attr);
 }

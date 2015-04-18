@@ -1,35 +1,46 @@
 /**
  * Rem mixin is using this variable. Define here base font size and you can use it with or without compass for keeping vertical rhythm good.
- * @type {Number}
+ * @type Number
  */
 $base-font-size: 16px;
 
 /**
  * It's base line-height which you can use anywhere.
- * @type {Number}
+ * @type Number
  */
 $line-height: 1.5;
 
 /**
  * List with color variables used for theme.
- * @type {Hex}
+ * @type Color
  */
 $main-color: #049cdb;
 
 /**
  * List with dimension variables used for layout.
- * @type {Number}
+ * @type Number
  */
 $container-width: 960px;
 
 /**
  * List with dimension variables used for layout.
- * @type {Map}
+ * @type Map
  */
 $breakpoints: (
   'medium': (min-width: 768px),
   'large': (min-width: 1280px),
   'huge': (min-width: 1440px)
+);
+
+/**
+ * athering all Z layers of the application 
+ * @type Map
+ */
+$z-indexes: (
+    'modal': 500,
+    'dropdown': 400,
+    'default': 1,
+    'below': -1
 );
 
 /**
@@ -39,6 +50,6 @@ $main-font: Helvetica, Arial, sans-serif;
 
 /**
  * Class prefix for png sprites (fallback for svg sprites)
- * @type {String}
+ * @type String
  */
 $ieSprite: '.lt-ie9';
