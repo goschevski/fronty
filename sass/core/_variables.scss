@@ -27,9 +27,9 @@ $container-width: 960px;
  * @type Map
  */
 $breakpoints: (
-  'medium': (min-width: 768px),
-  'large': (min-width: 1280px),
-  'huge': (min-width: 1440px)
+    'medium': (min-width: 768px),
+    'large': (min-width: 1280px),
+    'huge': (min-width: 1440px)
 );
 
 /**
