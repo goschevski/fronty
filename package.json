@@ -7,8 +7,7 @@
     "url": "git@github.com:goschevski/fronty.git"
   },
   "scripts": {
-    "test": "mocha -R spec assets/js/tests/**/*.js",
-    "postinstall": "wget -O sass/lib/_normalize.scss https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css"
+    "postinstall": "curl -o sass/lib/_normalize.scss https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css"
   },
   "author": "Aleksandar Goševski <gosevskibg@gmail.com>",
   "dependencies": {
