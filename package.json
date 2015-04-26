@@ -1,15 +1,7 @@
 {
-  "name": "fronty",
-  "version": "3.2.0",
-  "description": "Fronty is a boilerplate for starting new front-end projects.",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:goschevski/fronty.git"
-  },
   "scripts": {
     "postinstall": "curl -o sass/lib/_normalize.scss https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css"
   },
-  "author": "Aleksandar Goševski <gosevskibg@gmail.com>",
   "dependencies": {
     "browserify": "^9.0.3",
     "gulp": "^3.8.11",
