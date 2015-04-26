@@ -6,7 +6,6 @@ node_modules
 assets/js/build
 assets/fonts/iconfont
 _normalize.scss
-_iconfont-map.scss
-_sprite-map.scss
+sass/generated
 sprite.png
 sprite.svg

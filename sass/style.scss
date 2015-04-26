@@ -7,9 +7,11 @@
     "lib/normalize";
 
 @import
+    "generated/sprite-map",
+    "generated/iconfont-map";
+
+@import
     "core/variables",
-    "core/sprite-map",
-    "core/iconfont-map",
     "core/functions",
     "core/mixins";
 

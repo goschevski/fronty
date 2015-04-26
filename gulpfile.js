@@ -22,7 +22,7 @@ var base64 = require('gulp-base64-inline');
 var david = require('gulp-david');
 var sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('css', function () {
+gulp.task('css', ['iconfont', 'sprite'], function () {
     return gulp.src('sass/style.scss')
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -44,7 +44,7 @@ gulp.task('iconfont', function () {
                     fontPath: '../fonts/iconfont/'
                 }))
                 .pipe(rename('_iconfont-map.scss'))
-                .pipe(gulp.dest('sass/core/'));
+                .pipe(gulp.dest('sass/generated/'));
         })
         .pipe(gulp.dest('assets/fonts/iconfont/'));
 });
@@ -57,7 +57,7 @@ gulp.task('svgSprite', function () {
             padding: 5,
             positioning: 'packed',
             templateSrc: 'sass/templates/_sprite-template.scss',
-            templateDest: 'sass/core/_sprite-map.scss'
+            templateDest: 'sass/generated/_sprite-map.scss'
         }))
         .pipe(gulp.dest('assets/img/sprite.svg'));
 });
