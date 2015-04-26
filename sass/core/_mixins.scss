@@ -18,18 +18,7 @@
 }
 
 /**
- * Use this mixin for the parent element that holds the columns of grid.
- * Columns has display: inline-block property so to kill the default gap, we need to set font-size to 0.
- * Font size will be reset inside col mixin.
- */
-@mixin row {
-    font-size: 0;
-}
-
-/**
- * Creates column with given gap on the sides and align since it's inline-block.
- * Column has 100% width on mobile.
- * You can add 'fluid' class to perserve width on the mobile.
+ * Creates column with given gap on the sides.
  *
  * @param {Number} $col - Number of columns
  * @param {Number} $sum - Sum of colums
