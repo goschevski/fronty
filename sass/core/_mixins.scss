@@ -39,9 +39,7 @@
  * @param {String} $child - Child selector which you want to verticaly center.
  */
 @mixin vertical-center-content ( $child ) {
-    font-size: 0;
-
-    &:before, &:after {
+    &:after {
         content: "";
         display: inline-block;
         height: 100%;
@@ -49,7 +47,6 @@
     }
 
     #{$child} {
-        font-size: rem($base-font-size);
         display: inline-block;
         vertical-align: middle;
     }
