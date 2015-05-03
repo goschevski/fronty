@@ -34,7 +34,7 @@ gulp.task('css', ['iconfont', 'sprite'], function () {
 });
 
 gulp.task('iconfont', function () {
-    gulp.src(['assets/img/iconfont/*.svg'])
+    return gulp.src(['assets/img/iconfont/*.svg'])
         .pipe(iconfont({ fontName: 'iconfont', normalize: true }))
         .on('codepoints', function (codepoints, options) {
             gulp.src('sass/templates/_iconfont-template.scss')
