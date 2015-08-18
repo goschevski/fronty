@@ -10,7 +10,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var svgspritesheet = require('gulp-svg-spritesheet');
-var svgo = require('gulp-svgo');
+var svgmin = require('gulp-svgmin');
 var svg2png = require('gulp-svg2png');
 var imagemin = require('gulp-imagemin');
 var jscsConfig = require('./package').jscs;
@@ -52,7 +52,7 @@ gulp.task('iconfont', function () {
 gulp.task('svgSprite', function () {
     return gulp.src('assets/img/sprites/*')
         .pipe(plumber())
-        .pipe(svgo())
+        .pipe(svgmin())
         .pipe(svgspritesheet({
             padding: 5,
             positioning: 'packed',
