@@ -1,8 +1,10 @@
 .DS_Store
 node_modules
 *.css.map
-assets/js/
-assets/css/
-assets/img/
+assets/js/**/*.js
+assets/css/**/*.css
+assets/img/**/*.png
+assets/img/**/*.svg
+assets/img/**/*.jpg
 normalize.css
 TODO.md
