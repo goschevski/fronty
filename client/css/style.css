@@ -1,0 +1,17 @@
+/**
+ * CSS is preprocessed with postcss and plugins (Autoprefixer, base64 inline, mixins, imports, etc.).
+ * For all vector and raster background images use base64: background-image: inline("image.png");
+ */
+
+/* 1. Core */
+@import "base/variables";
+@import "base/mixins";
+
+/* 2. Base styles */
+@import "base/elements";
+
+ /* 3. Components */
+@import "components/container";
+
+ /* 4. Helpers */
+@import "base/utilities";

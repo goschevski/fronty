@@ -1,11 +1,8 @@
 .DS_Store
-.sass-cache
 node_modules
-*.css
 *.css.map
-assets/js/build
-assets/fonts/iconfont
-_normalize.scss
-sass/generated
-sprite.png
-sprite.svg
+assets/js/
+assets/css/
+assets/img/
+normalize.css
+TODO.md

@@ -1,9 +1,0 @@
-/**
- * Container module is used very often so it's predefined as module.
- */
-.container {
-    @include clearfix;
-    width: 90%;
-    max-width: $container-width;
-    margin: 0.5em auto;
-}

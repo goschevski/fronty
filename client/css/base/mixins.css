@@ -1,0 +1,22 @@
+/**
+ * Clearfix
+ */
+@define-mixin clearfix {
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+/**
+ * Grid
+ *
+ * @param number $grid-columns Number of columns.
+ * @param number $total Total number of columns.
+ * @param string $float Float left or right.
+ */
+@define-mixin grid $grid-cols, $grid-total-cols: var(--gridColumnsTotal), $float: left {
+    float: $float;
+    width: calc(($grid-cols / $grid-total-cols) * 100)%);
+}

@@ -1,0 +1,7 @@
+/** @define Container */
+
+.Container {
+    max-width: var(--containerWidth);
+    margin: 0 auto;
+    @mixin clearfix;
+}

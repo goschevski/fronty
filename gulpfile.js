@@ -1,138 +1,157 @@
+// gulp
 var gulp = require('gulp');
-var rename = require('gulp-rename');
-var jshintConfig = require('./package').jshintConfig;
+var sourcemaps = require('gulp-sourcemaps');
+var plumber = require('gulp-plumber');
+var livereload = require('gulp-livereload');
+var notify = require('gulp-notify');
+var runSequence = require('run-sequence');
+
+// javascript (browserify, uglify, jshint, jscs)
+var packageJSON = require('./package.json');
+var jshintConfig = packageJSON.jshint;
+var jscsConfig = packageJSON.jscs;
 var stylish = require('jshint-stylish');
 var jshint = require('gulp-jshint');
-var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
-var minify = require('gulp-minify-css');
-var autoprefixer = require('gulp-autoprefixer');
-var iconfont = require('gulp-iconfont');
-var consolidate = require('gulp-consolidate');
-var svgspritesheet = require('gulp-svg-spritesheet');
-var svgmin = require('gulp-svgmin');
-var svg2png = require('gulp-svg2png');
-var imagemin = require('gulp-imagemin');
-var jscsConfig = require('./package').jscs;
 var jscs = require('gulp-jscs');
 var through2 = require('through2');
 var browserify = require('browserify');
 var uglify = require('gulp-uglify');
-var base64 = require('gulp-base64-inline');
+
+// images
+var imagemin = require('gulp-imagemin');
+
+// project
 var david = require('gulp-david');
-var sourcemaps = require('gulp-sourcemaps');
+var todo = require('gulp-todo');
 
-gulp.task('css', ['iconfont', 'sprite'], function () {
-    return gulp.src('sass/style.scss')
-        .pipe(plumber())
+// css
+var postcss = require('gulp-postcss');
+var cssnext = require('cssnext');
+var normalize = require('postcss-normalize');
+var assets  = require('postcss-assets');
+var nested = require('postcss-nested');
+var mixins = require('postcss-mixins');
+var extend = require('postcss-extend');
+var postcssImport = require('postcss-import');
+var minify = require('gulp-minify-css');
+var bemLinter = require('postcss-bem-linter');
+var reporter = require('postcss-reporter');
+var pxtorem = require('postcss-pxtorem');
+
+// postcss compailer with plugins
+gulp.task('css', function () {
+    var processors = [
+        normalize,
+        postcssImport({
+            plugins: [
+                mixins(),
+                nested(),
+                bemLinter(),
+                reporter({ throwError: true })
+            ]
+        }),
+        cssnext({ browsers: 'last 2 version, > 1%, ie > 8', url: false }),
+        assets({ basePath: 'client/', relativeTo: 'client/css', loadPaths: ['img'], cachebuster: true }),
+        extend(),
+        pxtorem()
+    ];
+
+    return gulp.src('client/css/style.css')
+        .pipe(plumber({errorHandler: notify.onError('CSS error: <%= error.message %>')}))
         .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(base64('../assets/img'))
-        .pipe(autoprefixer('last 2 version', '> 1%'))
+        .pipe(postcss(processors))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('assets/css/'));
+        .pipe(gulp.dest('assets/css/'))
+        .pipe(livereload());
 });
 
-gulp.task('iconfont', function () {
-    return gulp.src(['assets/img/iconfont/*.svg'])
-        .pipe(iconfont({ fontName: 'iconfont', normalize: true }))
-        .on('codepoints', function (codepoints, options) {
-            gulp.src('sass/templates/_iconfont-template.scss')
-                .pipe(consolidate('lodash', {
-                    icons: codepoints,
-                    fontName: 'iconfont',
-                    fontPath: '../fonts/iconfont/'
-                }))
-                .pipe(rename('_iconfont-map.scss'))
-                .pipe(gulp.dest('sass/generated/'));
-        })
-        .pipe(gulp.dest('assets/fonts/iconfont/'));
-});
-
-gulp.task('svgSprite', function () {
-    return gulp.src('assets/img/sprites/*')
-        .pipe(plumber())
-        .pipe(svgmin())
-        .pipe(svgspritesheet({
-            padding: 5,
-            positioning: 'packed',
-            templateSrc: 'sass/templates/_sprite-template.scss',
-            templateDest: 'sass/generated/_sprite-map.scss'
-        }))
-        .pipe(gulp.dest('assets/img/sprite.svg'));
-});
-
-gulp.task('pngSprite', ['svgSprite'], function () {
-    return gulp.src('assets/img/sprite.svg')
-        .pipe(svg2png())
-        .pipe(gulp.dest('assets/img/'));
-});
-
-gulp.task('sprite', ['pngSprite']);
-
+// lint javascript files using jshint
 gulp.task('jshint', function () {
-    return gulp.src(['assets/js/**/*.js', '!assets/js/build/*.js'])
+    return gulp.src(['client/js/**/*.js', '!client/js/vendor/**/*.js'])
         .pipe(jshint(jshintConfig))
-        .pipe(jshint.reporter(stylish));
+        .pipe(jshint.reporter(stylish))
+        .pipe(jshint.reporter('fail'));
 });
 
+// check javascript code style via jscs
 gulp.task('jscs', function () {
-    return gulp.src(['assets/js/**/*.js', '!assets/js/build/*.js'])
+    return gulp.src(['client/js/**/*.js', '!client/js/vendor/**/*.js'])
         .pipe(jscs(jscsConfig));
 });
 
+// compile javascript files via browserify
 gulp.task('browserify', ['jshint'], function () {
     var browserified = function (file, enc, next) {
-        browserify(file.path)
-            .bundle(function (err, res) {
-                file.contents = res;
-                next(null, file);
+            browserify({
+                entries: file.path,
+                debug: true
+            }).bundle(function (err, res) {
+                file.contents = (typeof res !== 'undefined') ? res : null;
+                next(err, file);
             });
     };
 
-    return gulp.src('assets/js/bundles/*.js')
+    return gulp.src(['client/js/bundles/*.js'])
+        .pipe(plumber({errorHandler: notify.onError('Browserify error: <%= error.message %>')}))
         .pipe(sourcemaps.init())
         .pipe(through2.obj(browserified))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('assets/js/build/'));
+        .pipe(gulp.dest('assets/js/'))
+        .pipe(livereload());
 });
 
+// optimize images using imagemin
 gulp.task('images', function () {
-    return gulp.src('assets/img/**/*')
+    return gulp.src('client/img/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest('assets/img'));
 });
 
-gulp.task('checkDependencies', function () {
-  return gulp.src('../package.json')
-    .pipe(david({ error404: true, errorDepType: true }))
-    .pipe(david.reporter);
+// check package.json for outdated dependencies
+gulp.task('david', function () {
+    return gulp.src('./package.json')
+        .pipe(david({ error404: true, errorDepType: true }))
+        .pipe(david.reporter);
 });
 
-gulp.task('updateManifest', function () {
-  return gulp.src('../package.json')
-    .pipe(david({ update: true }))
-    .pipe(david.reporter)
-    .pipe(gulp.dest('../'));
+// update package.json with new versions of dependencies
+gulp.task('update', function () {
+    return gulp.src('./package.json')
+        .pipe(david({ update: true }))
+        .pipe(david.reporter)
+        .pipe(gulp.dest('./'));
 });
 
-gulp.task('minify', ['sprite', 'css'], function () {
+// get all todos from code
+gulp.task('todos', function () {
+    return gulp.src(['client/js/**/*.js'])
+        .pipe(todo())
+        .pipe(gulp.dest('./'));
+});
+
+// minify css
+gulp.task('minify', ['css'], function () {
     return gulp.src('assets/css/*.css')
         .pipe(minify({ keepSpecialComments: 0 }))
         .pipe(gulp.dest('assets/css/'));
 });
 
+// uglify javascript files
 gulp.task('uglify', ['browserify'], function () {
-    return gulp.src('assets/js/build/*.js')
+    return gulp.src('assets/js/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('assets/js/build/'));
+        .pipe(gulp.dest('assets/js/'));
 });
 
 gulp.task('watch', ['css', 'browserify'], function () {
-    gulp.watch('assets/img/sprites/*', ['sprite']);
-    gulp.watch('sass/**/*.scss', ['css']);
-    gulp.watch(['assets/js/**/*.js', '!assets/js/build/*.js'], ['jshint', 'browserify']);
+    livereload.listen();
+    gulp.watch('client/css/**/*.css', ['css']);
+    gulp.watch(['client/js/**/*.js'], ['jshint', 'browserify']);
 });
 
 gulp.task('default', ['css', 'jshint', 'browserify']);
-gulp.task('build', ['minify', 'uglify', 'images']);
+
+// build (images are optimized before they are inlined into CSS)
+gulp.task('build', function() {
+    runSequence('images', 'minify', 'uglify', function() {});
+});
