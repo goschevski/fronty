@@ -1,4 +1,4 @@
-![Fronty Boilerplate](https://raw.githubusercontent.com/goschevski/fronty/master/client/img/fronty.svg "Fronty Boilerplate")
+![Fronty Boilerplate](https://cldup.com/jy5xKcKfJX.svg "Fronty Boilerplate")
 
 # Fronty
 Fronty is a boilerplate for starting new front-end projects.
