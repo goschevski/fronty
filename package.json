@@ -1,4 +1,10 @@
 {
+  "scripts": {
+     "lint": "./node_modules/.bin/gulp jshint jscs"
+  },
+  "pre-commit": [
+    "lint"
+  ],
   "devDependencies": {
     "browserify": "^11.0.1",
     "chai": "^3.2.0",
