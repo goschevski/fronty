@@ -31,7 +31,6 @@ var normalize = require('postcss-normalize');
 var assets  = require('postcss-assets');
 var nested = require('postcss-nested');
 var mixins = require('postcss-mixins');
-var extend = require('postcss-extend');
 var postcssImport = require('postcss-import');
 var minify = require('gulp-minify-css');
 var bemLinter = require('postcss-bem-linter');
@@ -44,20 +43,19 @@ gulp.task('css', function () {
         normalize,
         postcssImport({
             plugins: [
-                mixins(),
                 nested(),
                 bemLinter(),
                 reporter({ throwError: true })
             ]
         }),
+        mixins(),
         cssnext({ browsers: 'last 2 version, > 1%, ie > 8', url: false }),
         assets({ basePath: 'client/', relativeTo: 'client/css', loadPaths: ['img'], cachebuster: true }),
-        extend(),
         pxtorem()
     ];
 
     return gulp.src('client/css/style.css')
-        .pipe(plumber({errorHandler: notify.onError('CSS error: <%= error.message %>')}))
+        .pipe(plumber({ errorHandler: notify.onError('CSS error: <%= error.message %>') }))
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(sourcemaps.write())
@@ -92,7 +90,7 @@ gulp.task('browserify', ['jshint'], function () {
     };
 
     return gulp.src(['client/js/bundles/*.js'])
-        .pipe(plumber({errorHandler: notify.onError('Browserify error: <%= error.message %>')}))
+        .pipe(plumber({ errorHandler: notify.onError('Browserify error: <%= error.message %>') }))
         .pipe(sourcemaps.init())
         .pipe(through2.obj(browserified))
         .pipe(sourcemaps.write())
@@ -152,6 +150,6 @@ gulp.task('watch', ['css', 'browserify'], function () {
 gulp.task('default', ['css', 'jshint', 'browserify']);
 
 // build (images are optimized before they are inlined into CSS)
-gulp.task('build', function() {
-    runSequence('images', 'minify', 'uglify', function() {});
+gulp.task('build', function () {
+    runSequence('images', 'minify', 'uglify', function () {});
 });
